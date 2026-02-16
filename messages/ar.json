@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "scanner": "الماسح الأمني",
+    "dashboard": "لوحة التحكم",
+    "developers": "المطورون",
+    "docs": "التوثيق",
+    "getApiKey": "احصل على مفتاح API",
+    "connectWallet": "ربط المحفظة",
+    "disconnect": "قطع الاتصال"
+  },
+  "hero": {
+    "badge": "تم تحقيق معدل كشف 100٪",
+    "title": "UAE7Guard",
+    "subtitle": "أمان Web3 للمؤسسات",
+    "description": "كشف التهديدات وتقييم المخاطر في الوقت الفعلي لمعاملات البلوكشين.",
+    "subDescription": "زمن استجابة أقل من 100 ملي ثانية. جاهز للإنتاج.",
+    "tryScanner": "جرّب الماسح الأمني",
+    "viewArchitecture": "عرض البنية التقنية",
+    "scrollToExplore": "مرر للاستكشاف",
+    "stats": {
+      "detectionRate": "معدل الكشف",
+      "responseLatency": "زمن الاستجابة",
+      "realTimeProtection": "حماية على مدار الساعة"
+    }
+  },
+  "scanner": {
+    "title": "بوابة الماسح الأمني",
+    "description": "تقييم المخاطر في الوقت الفعلي بواسطة محرك الكشف المحسّن",
+    "placeholder": "أدخل عنوان إيثريوم (0x...)",
+    "analyze": "تحليل العنوان",
+    "analyzing": "جارٍ التحليل...",
+    "tryExamples": "جرّب الأمثلة:",
+    "zeroAddress": "عنوان الصفر",
+    "newWallet": "محفظة جديدة",
+    "invalidAddress": "الرجاء إدخال عنوان إيثريوم صالح (42 حرف)",
+    "analysisFailed": "فشل التحليل. يرجى المحاولة مرة أخرى.",
+    "risk": "المخاطر",
+    "riskBreakdown": "تفصيل المخاطر",
+    "analysisDetails": "تفاصيل التحليل",
+    "threatType": "نوع التهديد",
+    "confidence": "مستوى الثقة",
+    "detectionModules": "وحدات الكشف",
+    "addressPoisoning": "تحليل تسميم العناوين",
+    "similarity": "التشابه",
+    "poisoningDetected": "⚠️ تم الكشف عن تسميم",
+    "contractSafety": "سلامة العقد الذكي",
+    "overallRisk": "المخاطر الإجمالية",
+    "safe": "✓ آمن",
+    "unsafe": "⚠️ غير آمن"
+  },
+  "aiScamDetection": {
+    "title": "كشف الاحتيال بالذكاء الاصطناعي",
+    "description": "نماذج تعلم آلي متقدمة لكشف محاولات التصيد الاحتيالي، وعمليات السحب المفاجئ، وهجمات الهندسة الاجتماعية",
+    "features": {
+      "phishing": {
+        "title": "كشف التصيد الاحتيالي",
+        "description": "تحليل فوري لعناوين URL وتفاعلات العقود"
+      },
+      "rugPull": {
+        "title": "منع السحب المفاجئ",
+        "description": "التحقق من قفل السيولة وتحليل الملكية"
+      },
+      "socialEngineering": {
+        "title": "الحماية من الهندسة الاجتماعية",
+        "description": "التعرف على الأنماط للتكتيكات الاحتيالية الشائعة"
+      }
+    }
+  },
+  "walletMonitoring": {
+    "title": "مراقبة المحفظة على مدار الساعة",
+    "description": "مراقبة مستمرة لأصولك الرقمية مع تنبيهات فورية للتهديدات",
+    "features": {
+      "realTime": {
+        "title": "تنبيهات فورية",
+        "description": "إشعارات لحظية للمعاملات المشبوهة"
+      },
+      "multiAsset": {
+        "title": "دعم متعدد الأصول",
+        "description": "مراقبة الرموز، NFTs، ومراكز DeFi"
+      },
+      "customRules": {
+        "title": "قواعد تنبيه مخصصة",
+        "description": "تعيين عتبات وشروط شخصية"
+      }
+    }
+  },
+  "multiChain": {
+    "title": "دعم متعدد السلاسل",
+    "description": "أمان شامل عبر جميع شبكات البلوكشين الرئيسية",
+    "chains": {
+      "ethereum": "إيثريوم",
+      "solana": "سولانا",
+      "polygon": "بوليجون",
+      "bnb": "سلسلة BNB",
+      "avalanche": "أفالانش",
+      "arbitrum": "أربيتروم"
+    }
+  },
+  "escrow": {
+    "title": "خدمات الضمان الآمنة",
+    "description": "معاملات بدون ثقة مع حماية العقود الذكية",
+    "features": {
+      "smartContract": {
+        "title": "ضمان العقد الذكي",
+        "description": "إطلاق تلقائي بناءً على الشروط"
+      },
+      "multiSig": {
+        "title": "دعم التوقيع المتعدد",
+        "description": "يتطلب موافقات متعددة لإطلاق الأموال"
+      },
+      "disputeResolution": {
+        "title": "حل النزاعات",
+        "description": "عملية تحكيم عادلة للنزاعات"
+      }
+    }
+  },
+  "nftRisk": {
+    "title": "تحليل مخاطر NFT",
+    "description": "تقييم شامل لمجموعات NFT والأسواق",
+    "features": {
+      "authenticity": {
+        "title": "التحقق من الأصالة",
+        "description": "كشف NFTs المزيفة والمسروقة"
+      },
+      "marketAnalysis": {
+        "title": "تحليل السوق",
+        "description": "كشف التلاعب بالأسعار والتداول الوهمي"
+      },
+      "contractAudit": {
+        "title": "تدقيق العقد",
+        "description": "مراجعة أمنية لعقود NFT الذكية"
+      }
+    }
+  },
+  "services": {
+    "title": "خدماتنا",
+    "description": "حلول أمان Web3 شاملة لكل حالة استخدام",
+    "realTimeMonitoring": {
+      "title": "المراقبة في الوقت الفعلي",
+      "description": "مراقبة على مدار الساعة لأنشطة البلوكشين"
+    },
+    "riskAssessment": {
+      "title": "تقييم المخاطر",
+      "description": "تقييم تلقائي لمخاطر المعاملات"
+    },
+    "incidentResponse": {
+      "title": "الاستجابة للحوادث",
+      "description": "استجابة سريعة للتهديدات الأمنية"
+    },
+    "compliance": {
+      "title": "حلول الامتثال",
+      "description": "الامتثال التنظيمي وإعداد التقارير"
+    }
+  },
+  "architecture": {
+    "title": "البنية التقنية",
+    "description": "مبني للتوسع، محسّن للسرعة",
+    "frontend": {
+      "title": "طبقة الواجهة الأمامية",
+      "tech": "Next.js 15 + TypeScript"
+    },
+    "api": {
+      "title": "بوابة API",
+      "tech": "RESTful + WebSocket"
+    },
+    "ml": {
+      "title": "محرك التعلم الآلي",
+      "tech": "TensorFlow + نماذج مخصصة"
+    },
+    "blockchain": {
+      "title": "مفهرس البلوكشين",
+      "tech": "دعم متعدد السلاسل"
+    },
+    "database": {
+      "title": "طبقة قاعدة البيانات",
+      "tech": "PostgreSQL + Redis"
+    }
+  },
+  "footer": {
+    "tagline": "منصة أمان Web3 على مستوى المؤسسات",
+    "product": "المنتج",
+    "features": "الميزات",
+    "pricing": "التسعير",
+    "documentation": "التوثيق",
+    "developers": "المطورون",
+    "api": "مرجع API",
+    "sdks": "مجموعات تطوير البرمجيات",
+    "guides": "أدلة الاستخدام",
+    "company": "الشركة",
+    "about": "من نحن",
+    "blog": "المدونة",
+    "careers": "الوظائف",
+    "contact": "اتصل بنا",
+    "legal": "قانوني",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة",
+    "security": "الأمان",
+    "rights": "جميع الحقوق محفوظة."
+  },
+  "dashboard": {
+    "title": "لوحة التحكم الأمنية",
+    "overview": "نظرة عامة",
+    "alerts": "التنبيهات",
+    "transactions": "المعاملات",
+    "analytics": "التحليلات"
+  },
+  "developers": {
+    "title": "بوابة المطورين",
+    "gettingStarted": "البدء",
+    "apiReference": "مرجع API",
+    "documentation": "التوثيق"
+  },
+  "notifications": {
+    "title": "إعدادات الإشعارات",
+    "telegram": "إشعارات تيليجرام",
+    "discord": "إشعارات ديسكورد",
+    "botToken": "رمز البوت",
+    "chatId": "معرّف الدردشة",
+    "webhookUrl": "رابط الويب هوك",
+    "enabled": "مفعّل",
+    "disabled": "معطّل",
+    "testNotification": "إرسال إشعار تجريبي",
+    "alertTypes": "أنواع التنبيهات",
+    "saveConfiguration": "حفظ الإعدادات",
+    "saving": "جارٍ الحفظ...",
+    "savedSuccessfully": "تم حفظ الإعدادات بنجاح!",
+    "saveFailed": "فشل حفظ الإعدادات",
+    "addressPoisoningAlerts": "تنبيهات تسميم العناوين",
+    "suspiciousApprovals": "الموافقات المشبوهة",
+    "highRiskTransactions": "المعاملات عالية المخاطر",
+    "rugPullAlerts": "تنبيهات السحب المفاجئ",
+    "nftScams": "عمليات احتيال NFT"
+  },
+  "transactionSimulator": {
+    "title": "محاكي المعاملات",
+    "description": "اختبر المعاملات قبل التوقيع لفهم ما سيحدث بالضبط",
+    "simulating": "جارٍ المحاكاة...",
+    "whatWillHappen": "ما الذي سيحدث:",
+    "criticalRisks": "مخاطر حرجة تم اكتشافها",
+    "warnings": "تحذيرات",
+    "from": "من",
+    "to": "إلى",
+    "gasEstimate": "تقدير الغاز",
+    "rejectTransaction": "رفض المعاملة",
+    "signTransaction": "توقيع المعاملة",
+    "signAnyway": "التوقيع على أي حال (غير مستحسن)",
+    "transferTransaction": "معاملة تحويل",
+    "approvalTransaction": "معاملة موافقة",
+    "swapTransaction": "معاملة تبادل",
+    "mintTransaction": "معاملة سك",
+    "unknownTransaction": "معاملة غير معروفة"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم الأمنية",
+    "overview": "نظرة عامة",
+    "alerts": "التنبيهات",
+    "transactions": "المعاملات",
+    "analytics": "التحليلات",
+    "liveThreatFeed": "موجز التهديدات المباشر",
+    "notificationStatus": "حالة الإشعارات",
+    "noThreatsDetected": "لم يتم اكتشاف تهديدات في الساعة الماضية",
+    "notificationsConfigured": "تم تكوين الإشعارات",
+    "noNotificationsConfigured": "لم يتم تكوين الإشعارات",
+    "configureNotifications": "قم بتكوين إشعارات تيليجرام أو ديسكورد في علامة التبويب الإشعارات لتلقي تنبيهات التهديدات في الوقت الفعلي.",
+    "externalThreatIntel": "استخبارات التهديدات الخارجية"
+  }
+}

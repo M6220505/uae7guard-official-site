@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[dir="ltr"] {
+  direction: ltr;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* RTL-specific adjustments */
+[dir="rtl"] .rtl\:rotate-180 {
+  transform: rotate(180deg);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+[dir="rtl"] .rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Smooth transitions for direction changes */
+* {
+  transition-property: margin, padding;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Preserve specific animations from direction changes */
+@keyframes glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Arabic font optimization */
+[lang="ar"] {
+  font-family: 'Cairo', 'Tajawal', 'Inter', system-ui, sans-serif;
+  letter-spacing: 0;
 }
