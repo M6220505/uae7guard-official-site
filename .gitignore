@@ -45,3 +45,4 @@ next-env.d.ts
 *.log
 build.log
 build-verification.log
+.env*.local
