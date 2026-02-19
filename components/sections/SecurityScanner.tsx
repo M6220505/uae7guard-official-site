@@ -18,8 +18,8 @@ export default function SecurityScanner() {
   }, [isConnected, walletAddress]);
 
   const analyzeAddress = async () => {
-    if (!address || address.length !== 42) {
-      alert('Please enter a valid Ethereum address (42 characters)');
+    if (!address || !/^0x[0-9a-fA-F]{40}$/.test(address)) {
+      alert('Please enter a valid Ethereum address (0x followed by 40 hex characters)');
       return;
     }
 

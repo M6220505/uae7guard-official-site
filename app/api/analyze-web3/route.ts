@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     };
 
     // Analyze the wallet using the Web3-enabled risk engine
-    const riskAssessment = analyzeWeb3Wallet(web3WalletData);
+    const riskAssessment = await analyzeWeb3Wallet(web3WalletData);
 
     return NextResponse.json(riskAssessment);
   } catch (error) {
