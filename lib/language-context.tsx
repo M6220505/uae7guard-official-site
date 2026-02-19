@@ -16,20 +16,24 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en');
 
   useEffect(() => {
-    // Load language from localStorage on mount
-    const saved = localStorage.getItem('language') as Language;
-    if (saved && (saved === 'en' || saved === 'ar')) {
-      setLanguageState(saved);
-      document.documentElement.lang = saved;
-      document.documentElement.dir = saved === 'ar' ? 'rtl' : 'ltr';
+    if (typeof window !== 'undefined') {
+      // Load language from localStorage on mount
+      const saved = localStorage.getItem('language') as Language;
+      if (saved && (saved === 'en' || saved === 'ar')) {
+        setLanguageState(saved);
+        document.documentElement.lang = saved;
+        document.documentElement.dir = saved === 'ar' ? 'rtl' : 'ltr';
+      }
     }
   }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem('language', lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    }
   };
 
   const value: LanguageContextType = {
@@ -48,7 +52,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    // Return default values for SSR
+    return {
+      language: 'en' as Language,
+      setLanguage: () => {},
+      dir: 'ltr' as const
+    };
   }
   return context;
 }
