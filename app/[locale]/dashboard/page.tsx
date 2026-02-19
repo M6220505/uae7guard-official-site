@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 import NotificationSettings from '@/components/NotificationSettings';
 import TransactionSimulator from '@/components/TransactionSimulator';
 
+// Force dynamic rendering to prevent localStorage SSR errors
+export const dynamic = 'force-dynamic';
+
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState('overview');
   const [notificationConfig, setNotificationConfig] = useState<any>(null);
