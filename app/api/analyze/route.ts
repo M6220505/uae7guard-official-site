@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     const mockWalletData = generateMockWalletData(address);
 
     // Calculate risk using the optimized risk engine
-    const riskAssessment = calculateOptimizedRisk({
+    const riskAssessment = await calculateOptimizedRisk({
       walletAddress: address,
       walletAgeDays: mockWalletData.walletAgeDays,
       transactionCount: mockWalletData.transactionCount,
