@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 
 interface NotificationConfig {
   telegram: {
@@ -24,7 +23,6 @@ interface NotificationConfig {
 }
 
 export default function NotificationSettings() {
-  const t = useTranslations('notifications');
   const [config, setConfig] = useState<NotificationConfig>({
     telegram: {
       enabled: false,

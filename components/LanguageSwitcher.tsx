@@ -1,19 +1,21 @@
 'use client';
 
-import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export default function LanguageSwitcher() {
-  const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
+  const [locale, setLocale] = useState('en');
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    // Detect current locale from pathname
+    const currentLocale = pathname.startsWith('/ar') ? 'ar' : 'en';
+    setLocale(currentLocale);
+  }, [pathname]);
 
   const toggleLanguage = () => {
     const newLang = locale === 'en' ? 'ar' : 'en';

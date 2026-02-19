@@ -1,11 +1,9 @@
 'use client';
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 export default function ConnectWalletButton() {
-  const t = useTranslations('nav');
 
   return (
     <ConnectButton.Custom>
@@ -45,7 +43,7 @@ export default function ConnectWalletButton() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {t('connectWallet')}
+                    Connect Wallet
                   </motion.button>
                 );
               }
@@ -58,7 +56,7 @@ export default function ConnectWalletButton() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {t('wrongNetwork', { defaultValue: 'Wrong Network' })}
+                    Wrong Network
                   </motion.button>
                 );
               }
@@ -103,7 +101,7 @@ export default function ConnectWalletButton() {
                   >
                     <div className="flex flex-col items-end">
                       <span className="text-xs text-zinc-400">
-                        {t('connected', { defaultValue: 'Connected' })}
+                        Connected
                       </span>
                       <span className="text-sm font-medium text-emerald-500">
                         {account.displayName}

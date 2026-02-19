@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
 import { useAccount } from 'wagmi';
 import { formatUnits, parseAbiItem } from 'viem';
 
@@ -45,7 +44,6 @@ export default function TransactionSimulator({
   onApprove,
   onReject,
 }: TransactionSimulatorProps) {
-  const t = useTranslations('transactionSimulator');
   const { address } = useAccount();
   const [simulating, setSimulating] = useState(false);
   const [simulation, setSimulation] = useState<SimulatedTransaction | null>(null);

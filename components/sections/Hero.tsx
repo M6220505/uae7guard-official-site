@@ -1,10 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 
 export default function Hero() {
-  const t = useTranslations('hero');
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950">
@@ -32,23 +30,23 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-emerald-400 text-sm font-medium">{t('badge')}</span>
+            <span className="text-emerald-400 text-sm font-medium">100% Detection Rate Achieved</span>
           </motion.div>
 
           {/* Main title */}
           <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
-            {t('title')}
+            UAE7Guard
           </h1>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-            {t('subtitle')}
+            Enterprise Web3 Security
           </h2>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            {t('description')}
+            Real-time threat detection and risk assessment for blockchain transactions.
             <span className="block mt-2 text-emerald-400 font-semibold">
-              {t('subDescription')}
+              Sub-100ms latency. Production-ready.
             </span>
           </p>
 
@@ -63,7 +61,7 @@ export default function Hero() {
               href="#scanner"
               className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold text-black hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transition-all duration-300 flex items-center gap-2"
             >
-              {t('tryScanner')}
+              Try Security Scanner
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -72,7 +70,7 @@ export default function Hero() {
               href="#architecture"
               className="px-8 py-4 bg-zinc-800 border border-zinc-700 rounded-lg font-semibold text-white hover:bg-zinc-700 transition-all duration-300"
             >
-              {t('viewArchitecture')}
+              View Architecture
             </a>
           </motion.div>
 
@@ -85,15 +83,15 @@ export default function Hero() {
           >
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
               <div className="text-4xl font-bold text-emerald-400 mb-2">100%</div>
-              <div className="text-zinc-400">{t('stats.detectionRate')}</div>
+              <div className="text-zinc-400">Detection Rate</div>
             </div>
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
               <div className="text-4xl font-bold text-cyan-400 mb-2">&lt;100ms</div>
-              <div className="text-zinc-400">{t('stats.responseLatency')}</div>
+              <div className="text-zinc-400">Response Latency</div>
             </div>
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
               <div className="text-4xl font-bold text-purple-400 mb-2">24/7</div>
-              <div className="text-zinc-400">{t('stats.realTimeProtection')}</div>
+              <div className="text-zinc-400">Real-time Protection</div>
             </div>
           </motion.div>
         </motion.div>
@@ -107,7 +105,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="flex flex-col items-center gap-2 text-zinc-500">
-          <span className="text-sm">{t('scrollToExplore')}</span>
+          <span className="text-sm">Scroll to explore</span>
           <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>

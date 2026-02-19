@@ -2,11 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
 import { useAccount } from 'wagmi';
 
 export default function SecurityScanner() {
-  const t = useTranslations('scanner');
   const { address: walletAddress, isConnected } = useAccount();
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
@@ -21,7 +19,7 @@ export default function SecurityScanner() {
 
   const analyzeAddress = async () => {
     if (!address || address.length !== 42) {
-      alert(t('invalidAddress'));
+      alert('Please enter a valid Ethereum address (42 characters)');
       return;
     }
 
@@ -39,7 +37,7 @@ export default function SecurityScanner() {
       setResult(data);
     } catch (error) {
       console.error('Analysis error:', error);
-      alert(t('analysisFailed'));
+      alert('Analysis failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -76,10 +74,10 @@ export default function SecurityScanner() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            {t('title')}
+            Security Scanner Portal
           </h2>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            {t('description')}
+            Real-time risk assessment powered by our optimized detection engine
           </p>
         </motion.div>
 
@@ -102,7 +100,7 @@ export default function SecurityScanner() {
                 type="text"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                placeholder={t('placeholder')}
+                placeholder="Enter Ethereum address (0x...)"
                 className="flex-1 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500 transition-colors"
               />
               <button
@@ -110,24 +108,24 @@ export default function SecurityScanner() {
                 disabled={loading}
                 className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg font-semibold text-black hover:shadow-[0_0_40px_rgba(16,185,129,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
               >
-                {loading ? t('analyzing') : t('analyze')}
+                {loading ? 'Analyzing...' : 'Analyze Address'}
               </button>
             </div>
 
             {/* Example addresses */}
             <div className="flex flex-wrap gap-2">
-              <span className="text-sm text-zinc-500">{t('tryExamples')}</span>
+              <span className="text-sm text-zinc-500">Try examples:</span>
               <button
                 onClick={() => setAddress('0x0000000000000000000000000000000000000000')}
                 className="text-sm px-3 py-1 bg-zinc-800 hover:bg-zinc-700 rounded-md text-zinc-400 transition-colors"
               >
-                {t('zeroAddress')}
+                Zero Address
               </button>
               <button
                 onClick={() => setAddress('0x1234567890123456789012345678901234567890')}
                 className="text-sm px-3 py-1 bg-zinc-800 hover:bg-zinc-700 rounded-md text-zinc-400 transition-colors"
               >
-                {t('newWallet')}
+                New Wallet
               </button>
             </div>
           </div>
@@ -147,7 +145,7 @@ export default function SecurityScanner() {
                 </div>
                 <div className={`inline-block px-4 py-2 rounded-full ${getRiskBg(result.riskLevel)} border`}>
                   <span className={`font-semibold uppercase ${getRiskColor(result.riskLevel)}`}>
-                    {result.riskLevel} {t('risk')}
+                    {result.riskLevel} Risk
                   </span>
                 </div>
               </div>
@@ -165,7 +163,7 @@ export default function SecurityScanner() {
               {/* Breakdown */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-4">{t('riskBreakdown')}</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">Risk Breakdown</h3>
                   <div className="space-y-3">
                     {Object.entries(result.breakdown).map(([key, value]: [string, any]) => (
                       <div key={key} className="flex justify-between items-center">
@@ -181,16 +179,16 @@ export default function SecurityScanner() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-4">{t('analysisDetails')}</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">Analysis Details</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-zinc-400">{t('threatType')}</span>
+                      <span className="text-zinc-400">Threat Type</span>
                       <span className="text-white font-mono text-sm">
                         {result.threatType}
                       </span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-zinc-400">{t('confidence')}</span>
+                      <span className="text-zinc-400">Confidence</span>
                       <span className="text-white font-mono">
                         {result.confidence}%
                       </span>
@@ -202,17 +200,17 @@ export default function SecurityScanner() {
               {/* Detection Modules */}
               {result.detectionModules && (
                 <div className="border-t border-zinc-800 pt-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">{t('detectionModules')}</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">Detection Modules</h3>
 
                   {result.detectionModules.addressPoisoning && (
                     <div className="mb-4 p-4 rounded-lg bg-zinc-950 border border-zinc-800">
                       <div className="text-sm font-semibold text-emerald-400 mb-2">
-                        {t('addressPoisoning')}
+                        Address Poisoning Analysis
                       </div>
                       <div className="text-sm text-zinc-400">
-                        {t('similarity')}: {(result.detectionModules.addressPoisoning.similarity * 100).toFixed(1)}%
+                        Similarity: {(result.detectionModules.addressPoisoning.similarity * 100).toFixed(1)}%
                         {result.detectionModules.addressPoisoning.isPoisoningAttempt && (
-                          <span className="ml-2 text-red-400 font-semibold">{t('poisoningDetected')}</span>
+                          <span className="ml-2 text-red-400 font-semibold">⚠️ Poisoning Detected</span>
                         )}
                       </div>
                     </div>
@@ -221,14 +219,14 @@ export default function SecurityScanner() {
                   {result.detectionModules.contractSafety && (
                     <div className="p-4 rounded-lg bg-zinc-950 border border-zinc-800">
                       <div className="text-sm font-semibold text-cyan-400 mb-2">
-                        {t('contractSafety')}
+                        Smart Contract Safety
                       </div>
                       <div className="text-sm text-zinc-400">
-                        {t('overallRisk')}: {result.detectionModules.contractSafety.overallRisk}%
+                        Overall Risk: {result.detectionModules.contractSafety.overallRisk}%
                         {result.detectionModules.contractSafety.isSafe ? (
-                          <span className="ml-2 text-emerald-400">{t('safe')}</span>
+                          <span className="ml-2 text-emerald-400">✓ Safe</span>
                         ) : (
-                          <span className="ml-2 text-red-400">{t('unsafe')}</span>
+                          <span className="ml-2 text-red-400">⚠️ Unsafe</span>
                         )}
                       </div>
                     </div>

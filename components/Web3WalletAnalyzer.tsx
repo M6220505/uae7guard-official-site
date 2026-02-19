@@ -2,11 +2,9 @@
 
 import { useAccount, useBalance } from 'wagmi';
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 export default function Web3WalletAnalyzer() {
-  const t = useTranslations('scanner');
   const { address, isConnected, chain } = useAccount();
   const { data: balanceData } = useBalance({ address });
   const [analysis, setAnalysis] = useState<any>(null);
@@ -79,7 +77,7 @@ export default function Web3WalletAnalyzer() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          {isAnalyzing ? t('analyzing') : t('analyze')}
+          {isAnalyzing ? 'Analyzing...' : 'Analyze Address'}
         </motion.button>
       </div>
 
@@ -107,7 +105,7 @@ export default function Web3WalletAnalyzer() {
             'bg-red-500/10 border-red-500/50'
           }`}>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-zinc-400">{t('risk')}</span>
+              <span className="text-zinc-400">Risk</span>
               <span className={`text-2xl font-bold ${
                 analysis.riskLevel === 'low' ? 'text-emerald-500' :
                 analysis.riskLevel === 'moderate' ? 'text-yellow-500' :
@@ -135,7 +133,7 @@ export default function Web3WalletAnalyzer() {
           )}
 
           <div className="p-4 bg-zinc-900/50 rounded-lg border border-zinc-800">
-            <h4 className="text-sm font-semibold text-zinc-400 mb-3">{t('riskBreakdown')}</h4>
+            <h4 className="text-sm font-semibold text-zinc-400 mb-3">Risk Breakdown</h4>
             <div className="space-y-2">
               {Object.entries(analysis.breakdown).map(([key, value]: [string, any]) => (
                 <div key={key} className="flex items-center justify-between text-xs">
