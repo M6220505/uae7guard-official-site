@@ -96,33 +96,30 @@ Visit `http://localhost:3000` to view the site.
 
 ```
 ├── app/
-│   ├── [locale]/               # Internationalized routes (en/ar)
-│   │   ├── page.tsx            # Homepage
-│   │   ├── dashboard/          # Security dashboard
-│   │   ├── developers/         # Developer portal
-│   │   └── layout.tsx          # Locale layout with Web3Provider
-│   ├── api/analyze/            # Risk analysis API endpoint
-│   ├── globals.css             # Global styles
-│   └── layout.tsx              # Root layout
+│   ├── api/
+│   │   ├── analyze/route.ts         # Core risk analysis API endpoint
+│   │   └── analyze-web3/route.ts    # Connected wallet analysis endpoint
+│   ├── dashboard/page.tsx           # Security dashboard
+│   ├── developers/page.tsx          # Developer portal
+│   ├── globals.css                  # Global styles
+│   ├── layout.tsx                   # Root layout (Navigation + Providers)
+│   └── page.tsx                     # Homepage
 ├── components/
-│   ├── sections/               # Page sections (Hero, Scanner, etc.)
-│   ├── NotificationSettings.tsx # V2.5: Telegram/Discord config
-│   ├── TransactionSimulator.tsx # V2.5: Pre-sign analysis
-│   ├── ConnectWalletButton.tsx # V2.5: RainbowKit integration
-│   ├── LanguageSwitcher.tsx    # V2.5: i18n toggle
-│   ├── Navigation.tsx          # Enhanced navigation bar
-│   └── Web3WalletAnalyzer.tsx  # Wallet risk analysis
+│   ├── sections/                    # Page sections (Hero, Scanner, etc.)
+│   ├── Navigation.tsx               # Main navigation + wallet connect
+│   ├── Web3WalletAnalyzer.tsx       # Wallet risk analysis UI
+│   ├── TransactionSimulator.tsx     # Pre-sign analysis
+│   └── NotificationSettings.tsx     # Telegram/Discord config
 ├── lib/
-│   ├── optimized_risk_engine.js # V2.5: Enhanced with external APIs
-│   ├── web3-provider.tsx       # RainbowKit configuration
-│   └── wagmi.ts                # Wagmi client setup
+│   ├── optimized_risk_engine.js     # Risk engine + detection modules
+│   ├── web3-provider.tsx            # RainbowKit/Wagmi provider
+│   ├── wagmi.ts                     # Wagmi config helper
+│   └── language-context.tsx         # Language/RTL context
 ├── messages/
-│   ├── en.json                 # English translations
-│   └── ar.json                 # Arabic translations (V2.5)
-├── middleware.ts               # i18n routing middleware
-├── i18n.ts                     # i18n configuration
-├── V2.5_UPGRADE_GUIDE.md       # Comprehensive V2.5 documentation
-└── PRODUCTION_GUIDE.md         # Deployment guide
+│   ├── en.json                      # English translations
+│   └── ar.json                      # Arabic translations
+├── V2.5_UPGRADE_GUIDE.md
+└── PRODUCTION_GUIDE.md
 ```
 
 ## 🔧 Risk Engine
@@ -189,6 +186,8 @@ Required for production (add in Vercel dashboard or `.env.local`):
 ```env
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
 NEXT_PUBLIC_ALCHEMY_API_KEY=your_api_key
+# Legacy fallback supported temporarily:
+# NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_project_id
 ```
 
 See `.env.example` for all available options.
