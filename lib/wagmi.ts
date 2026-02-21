@@ -1,9 +1,15 @@
-import { getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { mainnet, polygon, optimism, arbitrum, base, sepolia } from 'wagmi/chains';
+import {http, createConfig} from 'wagmi';
+import {arbitrum, base, mainnet, sepolia} from 'wagmi/chains';
+import {injected} from 'wagmi/connectors';
 
-export const wagmiConfig = getDefaultConfig({
-  appName: 'UAE7Guard',
-  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
-  chains: [mainnet, polygon, optimism, arbitrum, base, sepolia],
+export const wagmiConfig = createConfig({
+  chains: [mainnet, sepolia, arbitrum, base],
+  connectors: [injected()],
   ssr: true,
+  transports: {
+    [mainnet.id]: http(),
+    [sepolia.id]: http(),
+    [arbitrum.id]: http(),
+    [base.id]: http()
+  }
 });
