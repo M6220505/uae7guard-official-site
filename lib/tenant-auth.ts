@@ -272,18 +272,24 @@ export function resolveTenantAccess(request: Request):
     if (!secureStringCompare(singleKey, providedApiKey)) {
       return {authorized: false, status: 401, message: 'Unauthorized request.'};
     }
+
+    const tenantHeader = request.headers.get('x-tenant-id')?.trim();
+
+    return {
+      authorized: true,
+      access: {
+        tenantId: ALLOW_UNAUTH_TENANT_HEADER && tenantHeader ? tenantHeader : 'default',
+        rateLimitMaxRequests: DEFAULT_RATE_LIMIT_MAX,
+        dailyQuota: Number.isFinite(DEFAULT_DAILY_QUOTA) && DEFAULT_DAILY_QUOTA > 0
+          ? DEFAULT_DAILY_QUOTA
+          : null
+      }
+    };
   }
 
-  const tenantHeader = request.headers.get('x-tenant-id')?.trim();
-
   return {
-    authorized: true,
-    access: {
-      tenantId: ALLOW_UNAUTH_TENANT_HEADER && tenantHeader ? tenantHeader : 'default',
-      rateLimitMaxRequests: DEFAULT_RATE_LIMIT_MAX,
-      dailyQuota: Number.isFinite(DEFAULT_DAILY_QUOTA) && DEFAULT_DAILY_QUOTA > 0
-        ? DEFAULT_DAILY_QUOTA
-        : null
-    }
+    authorized: false,
+    status: 500,
+    message: 'Analyze API is not properly configured. Neither ANALYZE_API_KEY nor ANALYZE_TENANTS_JSON is set.'
   };
 }
