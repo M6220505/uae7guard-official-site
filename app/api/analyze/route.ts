@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Import the risk engine
-const { calculateOptimizedRisk } = require('@/lib/optimized_risk_engine.js');
+import { calculateOptimizedRisk } from '@/lib/optimized_risk_engine.js';
 
 export async function POST(request: NextRequest) {
   try {
@@ -34,10 +32,11 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(riskAssessment);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error('Analysis error:', error);
     return NextResponse.json(
-      { error: 'Analysis failed', details: error.message },
+      { error: 'Analysis failed', details: message },
       { status: 500 }
     );
   }

@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-
-// Import the risk engine
-const { analyzeWeb3Wallet } = require('@/lib/optimized_risk_engine');
+import { analyzeWeb3Wallet } from '@/lib/optimized_risk_engine.js';
 
 export async function POST(request: Request) {
   try {
