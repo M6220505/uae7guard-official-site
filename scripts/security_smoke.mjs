@@ -8,6 +8,10 @@ import path from 'node:path';
 import process from 'node:process';
 
 const NPM_CMD = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const NEXT_CMD =
+  process.platform === 'win32'
+    ? path.join(process.cwd(), 'node_modules', '.bin', 'next.cmd')
+    : path.join(process.cwd(), 'node_modules', '.bin', 'next');
 const cwd = process.cwd();
 
 const ADMIN_KEY = 'smoke-admin-key';
@@ -144,7 +148,10 @@ async function waitForServer(baseUrl, processRef, timeoutMs, recentLogs) {
     }
 
     try {
-      const response = await fetch(`${baseUrl}/en`, {redirect: 'manual'});
+      const response = await fetch(`${baseUrl}/en`, {
+        redirect: 'manual',
+        signal: AbortSignal.timeout(5000)
+      });
       if (response.status >= 200 && response.status < 500) {
         return;
       }
@@ -163,7 +170,16 @@ async function stopServer(serverProcess) {
     return;
   }
 
-  serverProcess.kill('SIGTERM');
+  try {
+    if (process.platform === 'win32') {
+      serverProcess.kill('SIGTERM');
+    } else if (serverProcess.pid) {
+      // Kill the detached process group so next-server cannot outlive npm wrappers.
+      process.kill(-serverProcess.pid, 'SIGTERM');
+    }
+  } catch {
+    // Ignore shutdown race errors.
+  }
 
   try {
     await Promise.race([once(serverProcess, 'exit'), sleep(5000)]);
@@ -172,19 +188,35 @@ async function stopServer(serverProcess) {
   }
 
   if (serverProcess.exitCode === null) {
-    serverProcess.kill('SIGKILL');
     try {
-      await once(serverProcess, 'exit');
+      if (process.platform === 'win32') {
+        serverProcess.kill('SIGKILL');
+      } else if (serverProcess.pid) {
+        process.kill(-serverProcess.pid, 'SIGKILL');
+      }
+    } catch {
+      // Ignore shutdown race errors.
+    }
+
+    try {
+      await Promise.race([once(serverProcess, 'exit'), sleep(3000)]);
     } catch {
       // Ignore shutdown race errors.
     }
   }
+
+  serverProcess.stdout?.removeAllListeners('data');
+  serverProcess.stderr?.removeAllListeners('data');
+  serverProcess.stdout?.destroy();
+  serverProcess.stderr?.destroy();
 }
 
 async function requestJson(baseUrl, pathname, init = {}) {
+  const signal = init.signal ?? AbortSignal.timeout(10_000);
   const response = await fetch(`${baseUrl}${pathname}`, {
     redirect: 'manual',
-    ...init
+    ...init,
+    signal
   });
 
   const text = await response.text();
@@ -220,13 +252,14 @@ async function main() {
   const baseUrl = `http://127.0.0.1:${port}`;
   const recentLogs = [];
 
-  const serverProcess = spawn(NPM_CMD, ['run', 'start', '--', '-p', String(port)], {
+  const serverProcess = spawn(NEXT_CMD, ['start', '-p', String(port)], {
     cwd,
     env: {
       ...serverEnv,
       PORT: String(port)
     },
-    stdio: ['ignore', 'pipe', 'pipe']
+    stdio: ['ignore', 'pipe', 'pipe'],
+    detached: process.platform !== 'win32'
   });
 
   serverProcess.stdout.on('data', (chunk) => pushRecentLog(recentLogs, chunk, 'stdout'));
