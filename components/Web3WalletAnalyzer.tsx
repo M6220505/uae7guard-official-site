@@ -23,7 +23,7 @@ export default function Web3WalletAnalyzer() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/analyze', {
+      const response = await fetch('/api/wallet-analyze', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({address})
