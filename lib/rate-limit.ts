@@ -55,8 +55,11 @@ export function extractClientIp(request: Request): string {
 
   const xForwardedFor = request.headers.get('x-forwarded-for');
   if (xForwardedFor) {
-    const first = xForwardedFor.split(',')[0]?.trim();
-    if (first) return first;
+    const ips = xForwardedFor.split(',').map(ip => ip.trim()).filter(Boolean);
+    if (ips.length > 0) {
+      // Use the last IP (rightmost), which is closest to the proxy we trust most
+      return ips[ips.length - 1];
+    }
   }
 
   return 'unknown';
