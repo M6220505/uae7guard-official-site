@@ -1,0 +1,48 @@
+name: Security & Dataset Checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  security-and-dataset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Security smoke tests
+        run: npm run test:security-smoke
+
+      - name: Dataset schema validation
+        run: npm run dataset:validate
+
+      - name: Dataset evaluation
+        run: |
+          mkdir -p artifacts
+          node scripts/evaluate_labels.mjs > artifacts/dataset-evaluation.json
+
+      - name: Upload dataset evaluation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dataset-evaluation
+          path: artifacts/dataset-evaluation.json
+          if-no-files-found: error
+          retention-days: 14
