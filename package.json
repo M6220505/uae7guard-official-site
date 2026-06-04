@@ -12,7 +12,10 @@
     "test:security-smoke": "node scripts/security_smoke.mjs",
     "dataset:validate": "node scripts/validate_labels.mjs",
     "dataset:evaluate": "node scripts/evaluate_labels.mjs",
-    "selfhost:check": "node scripts/selfhost_check.mjs"
+    "selfhost:check": "node scripts/selfhost_check.mjs",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.101.0",
@@ -26,12 +29,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.16",
+    "@opennextjs/cloudflare": "^1.19.11",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.98.0"
   }
 }
