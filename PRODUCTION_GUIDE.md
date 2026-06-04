@@ -95,3 +95,4 @@ Optionally enforce stricter values on hosting/CDN:
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Content-Security-Policy` tuned for your deployed domains
+
