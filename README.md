@@ -1,16 +1,16 @@
-# UAE7Guard Official Website
+# UAE7Guards Official Website
 
 Enterprise-grade Web3 Security Platform V2.6.
 
-Production-ready website for UAE7Guard featuring real-time blockchain transaction risk analysis with deterministic scoring, transparent confidence, and low-latency API responses.
+Production-ready website for UAE7Guards featuring real-time blockchain transaction risk analysis with deterministic scoring, transparent confidence, and low-latency API responses.
 
 ## Quick Deploy
 
 Self-host on any VPS with Docker:
 
 ```bash
-git clone https://github.com/M6220505/uae7guard-official-site
-cd uae7guard-official-site
+git clone https://github.com/M6220505/uae7guards-official-site
+cd uae7guards-official-site
 cp .env.example .env.local
 docker compose up -d --build
 ```
@@ -199,7 +199,7 @@ ANALYZE_ALERT_WEBHOOK_BEARER_TOKEN=
 ANALYZE_ALERT_TIMEOUT_MS=1200
 ANALYZE_ALERT_RATE_LIMIT_SAMPLE=0.2
 ANALYZE_ALERT_SUPPRESS_WINDOW_MS=30000
-ANALYZE_ALERT_SERVICE_NAME=uae7guard-analyze-api
+ANALYZE_ALERT_SERVICE_NAME=uae7guards-analyze-api
 SIM_RPC_URL=
 SIM_RPC_URL_1=
 SIM_RPC_URL_42161=
@@ -229,4 +229,4 @@ See:
 
 ## License
 
-Proprietary - UAE7Guard © 2025. All rights reserved.
+Proprietary - UAE7Guards © 2025. All rights reserved.

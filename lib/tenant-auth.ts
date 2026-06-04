@@ -19,7 +19,7 @@ type TenantCache = {
   loadError: string | null;
 };
 
-export const ADMIN_SESSION_COOKIE_NAME = 'uae7guard_admin_key';
+export const ADMIN_SESSION_COOKIE_NAME = 'uae7guards_admin_key';
 const ADMIN_SESSION_TOKEN_VERSION = 'v1';
 const DEFAULT_ADMIN_SESSION_MAX_AGE_SECONDS = Number(
   process.env.ANALYZE_ADMIN_SESSION_MAX_AGE_SECONDS ?? 28_800

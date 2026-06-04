@@ -1,6 +1,6 @@
 # Self-Hosting Guide
 
-UAE7Guard is a server-rendered Next.js 16 app with API routes (`/api/analyze`,
+UAE7Guards is a server-rendered Next.js 16 app with API routes (`/api/analyze`,
 `/api/usage`, `/api/admin/session`) and `proxy.ts` i18n routing, so it needs a
 **Node runtime** — not a static-only host. The project is configured with
 `output: "standalone"`, which produces a self-contained `server.js` (~55 MB)
@@ -12,8 +12,8 @@ This is the portable path. Build once, run anywhere.
 
 ```bash
 cp .env.example .env.local        # fill in production secrets
-docker build -t uae7guard .
-docker run -p 3000:3000 --env-file .env.local uae7guard
+docker build -t uae7guards .
+docker run -p 3000:3000 --env-file .env.local uae7guards
 ```
 
 Or with Compose (adds a healthcheck + auto-restart):

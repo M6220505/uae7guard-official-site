@@ -45,7 +45,7 @@ function getAlertConfig(): AlertConfig {
     timeoutMs: clamp(parseNumber(process.env.ANALYZE_ALERT_TIMEOUT_MS, 1200), 300, 10_000),
     rateLimitSample: clamp(parseNumber(process.env.ANALYZE_ALERT_RATE_LIMIT_SAMPLE, 0.2), 0, 1),
     suppressWindowMs: clamp(parseNumber(process.env.ANALYZE_ALERT_SUPPRESS_WINDOW_MS, 30_000), 0, 300_000),
-    serviceName: process.env.ANALYZE_ALERT_SERVICE_NAME?.trim() || 'uae7guard-analyze-api',
+    serviceName: process.env.ANALYZE_ALERT_SERVICE_NAME?.trim() || 'uae7guards-analyze-api',
     environment:
       process.env.ANALYZE_ALERT_ENV?.trim() ||
       process.env.NODE_ENV?.trim() ||

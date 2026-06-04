@@ -9,7 +9,7 @@
   "hero": {
     "badge": "Enterprise-grade Web3 Security Platform V2.5",
     "title": "Real-time Blockchain Risk Analysis with sub-100ms response",
-    "subtitle": "UAE7Guard protects transactions before signing using multi-vector threat detection, external intelligence, and transparent confidence scoring.",
+    "subtitle": "UAE7Guards protects transactions before signing using multi-vector threat detection, external intelligence, and transparent confidence scoring.",
     "primaryCta": "Run Live Scan",
     "secondaryCta": "Open Security Dashboard",
     "statDetection": "Detection Accuracy",
@@ -60,7 +60,7 @@
   },
   "developers": {
     "title": "Developer Portal",
-    "subtitle": "Integrate UAE7Guard decisioning into your dApp, backend gateway, or signing policy workflow.",
+    "subtitle": "Integrate UAE7Guards decisioning into your dApp, backend gateway, or signing policy workflow.",
     "apiTitle": "API Usage",
     "apiBody": "Use POST /api/analyze for transaction risk analysis in under 100ms with confidence and module-level breakdown.",
     "sdkTitle": "Integration-Ready Modules",

@@ -10,7 +10,7 @@ export async function GET() {
   return NextResponse.json(
     {
       status: 'ok',
-      service: 'uae7guard',
+      service: 'uae7guards',
       version: '2.6.0',
       generatedAt: new Date().toISOString(),
       runtime: {
