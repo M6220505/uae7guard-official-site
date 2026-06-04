@@ -1,5 +1,6 @@
 import {cookies} from 'next/headers';
 import Navigation from '@/components/Navigation';
+import IntegrationReadinessPanel from '@/components/IntegrationReadinessPanel';
 import NotificationSettings from '@/components/NotificationSettings';
 import TransactionSimulator from '@/components/TransactionSimulator';
 import UsageDashboardSection from '@/components/UsageDashboardSection';
@@ -40,6 +41,8 @@ export default async function DashboardPage({params}: DashboardPageProps) {
         <TransactionSimulator />
         <NotificationSettings />
         {canAccessUsage ? <UsageDashboardSection /> : null}
+
+        <IntegrationReadinessPanel />
 
         <section className="glass-panel p-6">
           <h2 className="text-xl font-semibold text-white">{t('liveThreatsTitle')}</h2>
