@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
   // Produces a minimal self-contained server (.next/standalone/server.js)
   // for Docker / VPS / any non-Vercel host. Run with `node server.js`.
   output: 'standalone',
+  outputFileTracingRoot: __dirname,
   reactStrictMode: true,
   // Turbopack is the default bundler in Next.js 16. These aliases stub out
   // optional native/logging deps that the Web3 stack may probe for.
