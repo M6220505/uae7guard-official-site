@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "developers": "Developers",
+    "usage": "Usage",
+    "switchLanguage": "Switch language"
+  },
+  "hero": {
+    "badge": "Enterprise-grade Web3 Security Platform V2.5",
+    "title": "Real-time Blockchain Risk Analysis with sub-100ms response",
+    "subtitle": "UAE7Guard protects transactions before signing using multi-vector threat detection, external intelligence, and transparent confidence scoring.",
+    "primaryCta": "Run Live Scan",
+    "secondaryCta": "Open Security Dashboard",
+    "statDetection": "Detection Accuracy",
+    "statLatency": "Decision Latency",
+    "statCoverage": "Threat Monitoring"
+  },
+  "scanner": {
+    "title": "Security Scanner Portal",
+    "description": "Submit an Ethereum address to run instant V2.5 risk analysis across blacklist, smart-contract, poisoning, flash-loan, and external intelligence modules.",
+    "inputLabel": "Target Address",
+    "inputPlaceholder": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "fromLabel": "Signer Address (from)",
+    "chainIdLabel": "Chain ID",
+    "valueLabel": "Transaction Value (ETH)",
+    "historyLabel": "Historical Counterparties (comma-separated)",
+    "dataLabel": "Transaction Data (hex)",
+    "dataPlaceholder": "0x095ea7b3000000000000000000000000...",
+    "externalSignalsLabel": "External Signals (one per line)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|Malicious contract interaction",
+    "externalSignalsHelp": "Format: source|severity|id|note",
+    "submit": "Analyze Address",
+    "analyzing": "Analyzing...",
+    "idleHint": "Run a scan to see module-level threat breakdowns and confidence metrics."
+  },
+  "services": {
+    "title": "Core Protection Modules",
+    "addressPoisoningTitle": "Address Poisoning Defense",
+    "addressPoisoningBody": "Levenshtein and prefix/suffix similarity checks detect lookalike wallets with low-latency execution.",
+    "contractAuditTitle": "Smart Contract Auditing",
+    "contractAuditBody": "Bytecode pattern checks and dangerous opcode heuristics flag known exploit patterns before approval.",
+    "riskScoringTitle": "Real-time Risk Scoring",
+    "riskScoringBody": "Weighted scoring across age, behavior, value flow, and external intelligence yields a transparent allow/review/block decision."
+  },
+  "architecture": {
+    "title": "Technical Architecture",
+    "pipelineTitle": "Analysis Pipeline",
+    "p1": "Input validation and address normalization",
+    "p2": "Threat module execution (poisoning, contract, flash loan)",
+    "p3": "External intelligence scoring with graceful degradation",
+    "p4": "Decision + confidence + explanation response",
+    "stackTitle": "Platform Stack",
+    "stackBody": "App Router + typed API route + optimized JavaScript risk engine + Wagmi wallet bridge + next-intl localization."
+  },
+  "dashboard": {
+    "title": "Security Operations Dashboard",
+    "subtitle": "Monitor wallet risk, simulate transactions before signing, and configure notifications for live threat signals.",
+    "liveThreatsTitle": "Live Threat Feed"
+  },
+  "developers": {
+    "title": "Developer Portal",
+    "subtitle": "Integrate UAE7Guard decisioning into your dApp, backend gateway, or signing policy workflow.",
+    "apiTitle": "API Usage",
+    "apiBody": "Use POST /api/analyze for transaction risk analysis in under 100ms with confidence and module-level breakdown.",
+    "sdkTitle": "Integration-Ready Modules",
+    "sdkBody": "Risk engine is separated in lib/optimized_risk_engine.js for direct server-side use in any Node.js environment.",
+    "docsTitle": "Deployment & Operations",
+    "docsBody": "Review PRODUCTION_GUIDE.md and DEPLOY_COMMANDS.md for Vercel deployment, environment setup, and domain configuration."
+  },
+  "notifications": {
+    "title": "Notification Engine",
+    "telegram": "Telegram Bot Endpoint",
+    "discord": "Discord Webhook URL",
+    "save": "Save Notification Settings",
+    "saved": "Saved"
+  },
+  "simulator": {
+    "title": "Transaction Simulator",
+    "address": "Recipient / Contract Address",
+    "from": "Signer Address (from)",
+    "chainId": "Chain ID",
+    "data": "Transaction Data (hex)",
+    "value": "Value (ETH)",
+    "history": "Recent addresses (comma-separated)",
+    "externalSignals": "External Signals (one per line)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|Malicious contract interaction",
+    "externalSignalsHelp": "Format: source|severity|id|note",
+    "simulate": "Simulate Transaction",
+    "simulating": "Simulating..."
+  },
+  "simulation": {
+    "title": "Simulation Insights",
+    "status": "Status",
+    "source": "Source",
+    "reason": "Reason",
+    "usedChain": "Chain",
+    "errors": "Simulation Errors",
+    "reverted": "Reverted",
+    "delegateCallDetected": "DelegateCall Detected",
+    "selfDestructDetected": "Selfdestruct Detected",
+    "createdContract": "Contract Creation",
+    "unlimitedApprovalDetected": "Unlimited Approval",
+    "touchedUnknownContracts": "Touched Unknown Contracts",
+    "trueValue": "Yes",
+    "falseValue": "No",
+    "statusOk": "OK",
+    "statusError": "Error",
+    "statusSkipped": "Skipped",
+    "sourceServer": "Server Trace",
+    "sourceClient": "Client Fallback",
+    "sourceNone": "Not Available"
+  },
+  "wallet": {
+    "title": "Web3 Wallet Analyzer",
+    "desc": "Connect your wallet and run real-time risk analysis before interacting with contracts.",
+    "analyze": "Analyze Connected Wallet",
+    "connectFirst": "Connect a wallet to start wallet-level analysis."
+  },
+  "usage": {
+    "title": "Usage and Evaluation",
+    "subtitle": "Filter tenant traffic, export CSV, and monitor precision/recall/FPR metrics."
+  }
+}

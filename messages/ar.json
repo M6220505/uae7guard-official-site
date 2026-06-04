@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "developers": "بوابة المطورين",
+    "usage": "الاستخدام",
+    "switchLanguage": "تبديل اللغة"
+  },
+  "hero": {
+    "badge": "منصة حماية ويب3 المؤسسية V2.5",
+    "title": "تحليل مخاطر البلوكتشين لحظيًا بزمن استجابة أقل من 100 مللي ثانية",
+    "subtitle": "تقوم UAE7Guard بحماية المعاملات قبل التوقيع عبر كشف تهديدات متعدد المسارات وتقييم موثوقية واضح للمستخدم.",
+    "primaryCta": "تشغيل الفحص المباشر",
+    "secondaryCta": "فتح لوحة الأمان",
+    "statDetection": "دقة الاكتشاف",
+    "statLatency": "زمن اتخاذ القرار",
+    "statCoverage": "مراقبة التهديدات"
+  },
+  "scanner": {
+    "title": "بوابة الفحص الأمني",
+    "description": "أدخل عنوان إيثريوم لتشغيل تحليل مخاطر فوري عبر وحدات القوائم السوداء والعقود الذكية والتسميم والعناوين الخارجية.",
+    "inputLabel": "العنوان المستهدف",
+    "inputPlaceholder": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "fromLabel": "عنوان الموقّع (from)",
+    "chainIdLabel": "معرّف الشبكة",
+    "valueLabel": "قيمة المعاملة (ETH)",
+    "historyLabel": "العناوين السابقة (مفصولة بفاصلة)",
+    "dataLabel": "بيانات المعاملة (hex)",
+    "dataPlaceholder": "0x095ea7b3000000000000000000000000...",
+    "externalSignalsLabel": "إشارات خارجية (سطر لكل إشارة)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|تفاعل عقد خبيث",
+    "externalSignalsHelp": "الصيغة: source|severity|id|note",
+    "submit": "تحليل العنوان",
+    "analyzing": "جاري التحليل...",
+    "idleHint": "قم بتشغيل فحص لرؤية تفاصيل كل وحدة كشف ومستوى الثقة."
+  },
+  "services": {
+    "title": "وحدات الحماية الأساسية",
+    "addressPoisoningTitle": "الدفاع ضد تسميم العناوين",
+    "addressPoisoningBody": "نستخدم قياس التشابه واكتشاف التطابق في البداية والنهاية لرصد العناوين المقلدة بسرعة عالية.",
+    "contractAuditTitle": "تدقيق العقود الذكية",
+    "contractAuditBody": "فحص أنماط البايت كود والعمليات الخطرة لاكتشاف السلوكيات المعروفة قبل الموافقة.",
+    "riskScoringTitle": "تقييم المخاطر اللحظي",
+    "riskScoringBody": "دمج إشارات السلوك والقيمة والذكاء الخارجي لإنتاج قرار واضح: سماح أو مراجعة أو حظر."
+  },
+  "architecture": {
+    "title": "البنية التقنية",
+    "pipelineTitle": "خط سير التحليل",
+    "p1": "التحقق من الإدخال وتوحيد صيغة العنوان",
+    "p2": "تشغيل وحدات الكشف (التسميم، العقد، القروض السريعة)",
+    "p3": "دمج الاستخبارات الخارجية مع الاستمرارية عند تعطل المصدر",
+    "p4": "إرجاع القرار مع الثقة والتفسير",
+    "stackTitle": "مكدس المنصة",
+    "stackBody": "Next.js App Router مع واجهة API مكتوبة ونواة مخاطر محسنة وربط محافظ Wagmi مع تعريب كامل عبر next-intl."
+  },
+  "dashboard": {
+    "title": "لوحة عمليات الأمان",
+    "subtitle": "راقب مخاطر المحافظ، وحاكي المعاملات قبل التوقيع، واضبط الإشعارات لتهديدات الوقت الحقيقي.",
+    "liveThreatsTitle": "موجز التهديدات المباشر"
+  },
+  "developers": {
+    "title": "بوابة المطورين",
+    "subtitle": "ادمج محرك القرارات الخاص بـ UAE7Guard داخل تطبيقاتك أو البوابات الخلفية أو سياسات التوقيع.",
+    "apiTitle": "استخدام الواجهة البرمجية",
+    "apiBody": "استخدم POST /api/analyze للحصول على تحليل مخاطر سريع مع مستوى ثقة وتفصيل للوحدات.",
+    "sdkTitle": "وحدات جاهزة للدمج",
+    "sdkBody": "تم فصل محرك المخاطر في ملف lib/optimized_risk_engine.js ليعمل مباشرة في بيئة Node.js.",
+    "docsTitle": "التشغيل والإطلاق",
+    "docsBody": "راجع PRODUCTION_GUIDE.md و DEPLOY_COMMANDS.md لإعداد Vercel والمتغيرات البيئية والدومين."
+  },
+  "notifications": {
+    "title": "محرك التنبيهات",
+    "telegram": "رابط Telegram Bot",
+    "discord": "رابط Discord Webhook",
+    "save": "حفظ إعدادات التنبيه",
+    "saved": "تم الحفظ"
+  },
+  "simulator": {
+    "title": "محاكي المعاملات",
+    "address": "عنوان المستلم / العقد",
+    "from": "عنوان الموقّع (from)",
+    "chainId": "معرّف الشبكة",
+    "data": "بيانات المعاملة (hex)",
+    "value": "القيمة (ETH)",
+    "history": "العناوين الأخيرة (مفصولة بفاصلة)",
+    "externalSignals": "إشارات خارجية (سطر لكل إشارة)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|تفاعل عقد خبيث",
+    "externalSignalsHelp": "الصيغة: source|severity|id|note",
+    "simulate": "محاكاة المعاملة",
+    "simulating": "جاري المحاكاة..."
+  },
+  "simulation": {
+    "title": "نتائج المحاكاة",
+    "status": "الحالة",
+    "source": "المصدر",
+    "reason": "السبب",
+    "usedChain": "الشبكة",
+    "errors": "أخطاء المحاكاة",
+    "reverted": "تم التراجع",
+    "delegateCallDetected": "اكتشاف DelegateCall",
+    "selfDestructDetected": "اكتشاف Selfdestruct",
+    "createdContract": "إنشاء عقد",
+    "unlimitedApprovalDetected": "موافقة غير محدودة",
+    "touchedUnknownContracts": "عقود غير معروفة تم لمسها",
+    "trueValue": "نعم",
+    "falseValue": "لا",
+    "statusOk": "سليم",
+    "statusError": "خطأ",
+    "statusSkipped": "تم التجاوز",
+    "sourceServer": "تتبّع الخادم",
+    "sourceClient": "Fallback من العميل",
+    "sourceNone": "غير متاح"
+  },
+  "wallet": {
+    "title": "محلل محافظ ويب3",
+    "desc": "اربط محفظتك وشغل تحليل المخاطر في الوقت الحقيقي قبل التفاعل مع العقود.",
+    "analyze": "تحليل المحفظة المتصلة",
+    "connectFirst": "قم بربط محفظة أولًا لبدء تحليل المخاطر."
+  },
+  "usage": {
+    "title": "لوحة الاستخدام والتقييم",
+    "subtitle": "صفِّ حركة المستأجرين، وصدّر CSV، وراقب مؤشرات الدقة والاستدعاء ومعدل الإنذارات الكاذبة."
+  }
+}
