@@ -48,7 +48,6 @@ function getAlertConfig(): AlertConfig {
     serviceName: process.env.ANALYZE_ALERT_SERVICE_NAME?.trim() || 'uae7guard-analyze-api',
     environment:
       process.env.ANALYZE_ALERT_ENV?.trim() ||
-      process.env.VERCEL_ENV?.trim() ||
       process.env.NODE_ENV?.trim() ||
       'unknown'
   };

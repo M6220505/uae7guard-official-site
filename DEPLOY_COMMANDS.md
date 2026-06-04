@@ -1,27 +1,30 @@
 # Deployment Commands
 
-## Option A: Vercel Dashboard
-
-1. Push repository to GitHub.
-2. Import project in Vercel.
-3. Set environment variables from `.env.example`.
-4. Deploy.
-
-## Option B: One-click Button
-
-Use the button in `README.md` after replacing your GitHub username.
-
-## Option C: Vercel CLI
+## Docker (recommended)
 
 ```bash
-npm install -g vercel
-vercel login
-vercel
-vercel --prod
+cp .env.example .env.local
+docker compose up -d --build
 ```
+
+## Direct (no Docker)
+
+```bash
+npm ci
+npm run build
+cp -r .next/static .next/standalone/.next/static
+cp -r public .next/standalone/public
+PORT=3000 HOSTNAME=0.0.0.0 node .next/standalone/server.js
+```
+
+## Managed Platforms
+
+Any container platform works (Railway, Render, Fly.io, DigitalOcean App Platform, Google Cloud Run, AWS):
+
+1. Connect the GitHub repo.
+2. Set env vars from `.env.example`.
+3. Deploy (auto-detects Dockerfile).
 
 ## Custom Domain
 
-1. Add domain in Vercel project settings.
-2. Add DNS records requested by Vercel.
-3. Wait for SSL issuance and propagation.
+Put Nginx/Caddy/Traefik in front for TLS and a domain.

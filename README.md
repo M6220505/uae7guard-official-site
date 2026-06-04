@@ -4,9 +4,16 @@ Enterprise-grade Web3 Security Platform V2.6.
 
 Production-ready website for UAE7Guard featuring real-time blockchain transaction risk analysis with deterministic scoring, transparent confidence, and low-latency API responses.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fuae7guard-official-site&env=NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,NEXT_PUBLIC_ALCHEMY_API_KEY&envDescription=Required%20API%20keys%20for%20Web3%20functionality&envLink=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fuae7guard-official-site%2Fblob%2Fmain%2F.env.example&project-name=uae7guard-official-site&repository-name=uae7guard-official-site)
+## Quick Deploy
 
-> Note: Replace `YOUR_USERNAME` in the Deploy button URL after creating your GitHub repository.
+Self-host on any VPS with Docker:
+
+```bash
+git clone https://github.com/M6220505/uae7guard-official-site
+cd uae7guard-official-site
+cp .env.example .env.local
+docker compose up -d --build
+```
 
 ## V2.6 Features
 

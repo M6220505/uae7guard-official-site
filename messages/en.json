@@ -66,7 +66,7 @@
     "sdkTitle": "Integration-Ready Modules",
     "sdkBody": "Risk engine is separated in lib/optimized_risk_engine.js for direct server-side use in any Node.js environment.",
     "docsTitle": "Deployment & Operations",
-    "docsBody": "Review PRODUCTION_GUIDE.md and DEPLOY_COMMANDS.md for Vercel deployment, environment setup, and domain configuration."
+    "docsBody": "Review PRODUCTION_GUIDE.md and DEPLOY_COMMANDS.md for deployment, environment setup, and domain configuration."
   },
   "notifications": {
     "title": "Notification Engine",

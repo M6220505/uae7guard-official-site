@@ -38,9 +38,6 @@ function sweepExpired(now: number) {
 }
 
 export function extractClientIp(request: Request): string {
-  const vercelForwardedFor = request.headers.get('x-vercel-forwarded-for');
-  if (vercelForwardedFor?.trim()) return vercelForwardedFor.trim();
-
   const cloudflareIp = request.headers.get('cf-connecting-ip');
   if (cloudflareIp?.trim()) return cloudflareIp.trim();
 
