@@ -1,267 +1,124 @@
 {
   "nav": {
-    "scanner": "الماسح الأمني",
+    "home": "الرئيسية",
     "dashboard": "لوحة التحكم",
-    "developers": "المطورون",
-    "docs": "التوثيق",
-    "getApiKey": "احصل على مفتاح API",
-    "connectWallet": "ربط المحفظة",
-    "disconnect": "قطع الاتصال"
+    "developers": "بوابة المطورين",
+    "usage": "الاستخدام",
+    "switchLanguage": "تبديل اللغة"
   },
   "hero": {
-    "badge": "تم تحقيق معدل كشف 100٪",
-    "title": "UAE7Guard",
-    "subtitle": "أمان Web3 للمؤسسات",
-    "description": "كشف التهديدات وتقييم المخاطر في الوقت الفعلي لمعاملات البلوكشين.",
-    "subDescription": "زمن استجابة أقل من 100 ملي ثانية. جاهز للإنتاج.",
-    "tryScanner": "جرّب الماسح الأمني",
-    "viewArchitecture": "عرض البنية التقنية",
-    "scrollToExplore": "مرر للاستكشاف",
-    "stats": {
-      "detectionRate": "معدل الكشف",
-      "responseLatency": "زمن الاستجابة",
-      "realTimeProtection": "حماية على مدار الساعة"
-    }
+    "badge": "منصة حماية ويب3 المؤسسية V2.5",
+    "title": "تحليل مخاطر البلوكتشين لحظيًا بزمن استجابة أقل من 100 مللي ثانية",
+    "subtitle": "تقوم UAE7Guard بحماية المعاملات قبل التوقيع عبر كشف تهديدات متعدد المسارات وتقييم موثوقية واضح للمستخدم.",
+    "primaryCta": "تشغيل الفحص المباشر",
+    "secondaryCta": "فتح لوحة الأمان",
+    "statDetection": "دقة الاكتشاف",
+    "statLatency": "زمن اتخاذ القرار",
+    "statCoverage": "مراقبة التهديدات"
   },
   "scanner": {
-    "title": "بوابة الماسح الأمني",
-    "description": "تقييم المخاطر في الوقت الفعلي بواسطة محرك الكشف المحسّن",
-    "placeholder": "أدخل عنوان إيثريوم (0x...)",
-    "analyze": "تحليل العنوان",
-    "analyzing": "جارٍ التحليل...",
-    "tryExamples": "جرّب الأمثلة:",
-    "zeroAddress": "عنوان الصفر",
-    "newWallet": "محفظة جديدة",
-    "invalidAddress": "الرجاء إدخال عنوان إيثريوم صالح (42 حرف)",
-    "analysisFailed": "فشل التحليل. يرجى المحاولة مرة أخرى.",
-    "risk": "المخاطر",
-    "riskBreakdown": "تفصيل المخاطر",
-    "analysisDetails": "تفاصيل التحليل",
-    "threatType": "نوع التهديد",
-    "confidence": "مستوى الثقة",
-    "detectionModules": "وحدات الكشف",
-    "addressPoisoning": "تحليل تسميم العناوين",
-    "similarity": "التشابه",
-    "poisoningDetected": "⚠️ تم الكشف عن تسميم",
-    "contractSafety": "سلامة العقد الذكي",
-    "overallRisk": "المخاطر الإجمالية",
-    "safe": "✓ آمن",
-    "unsafe": "⚠️ غير آمن"
-  },
-  "aiScamDetection": {
-    "title": "كشف الاحتيال بالذكاء الاصطناعي",
-    "description": "نماذج تعلم آلي متقدمة لكشف محاولات التصيد الاحتيالي، وعمليات السحب المفاجئ، وهجمات الهندسة الاجتماعية",
-    "features": {
-      "phishing": {
-        "title": "كشف التصيد الاحتيالي",
-        "description": "تحليل فوري لعناوين URL وتفاعلات العقود"
-      },
-      "rugPull": {
-        "title": "منع السحب المفاجئ",
-        "description": "التحقق من قفل السيولة وتحليل الملكية"
-      },
-      "socialEngineering": {
-        "title": "الحماية من الهندسة الاجتماعية",
-        "description": "التعرف على الأنماط للتكتيكات الاحتيالية الشائعة"
-      }
-    }
-  },
-  "walletMonitoring": {
-    "title": "مراقبة المحفظة على مدار الساعة",
-    "description": "مراقبة مستمرة لأصولك الرقمية مع تنبيهات فورية للتهديدات",
-    "features": {
-      "realTime": {
-        "title": "تنبيهات فورية",
-        "description": "إشعارات لحظية للمعاملات المشبوهة"
-      },
-      "multiAsset": {
-        "title": "دعم متعدد الأصول",
-        "description": "مراقبة الرموز، NFTs، ومراكز DeFi"
-      },
-      "customRules": {
-        "title": "قواعد تنبيه مخصصة",
-        "description": "تعيين عتبات وشروط شخصية"
-      }
-    }
-  },
-  "multiChain": {
-    "title": "دعم متعدد السلاسل",
-    "description": "أمان شامل عبر جميع شبكات البلوكشين الرئيسية",
-    "chains": {
-      "ethereum": "إيثريوم",
-      "solana": "سولانا",
-      "polygon": "بوليجون",
-      "bnb": "سلسلة BNB",
-      "avalanche": "أفالانش",
-      "arbitrum": "أربيتروم"
-    }
-  },
-  "escrow": {
-    "title": "خدمات الضمان الآمنة",
-    "description": "معاملات بدون ثقة مع حماية العقود الذكية",
-    "features": {
-      "smartContract": {
-        "title": "ضمان العقد الذكي",
-        "description": "إطلاق تلقائي بناءً على الشروط"
-      },
-      "multiSig": {
-        "title": "دعم التوقيع المتعدد",
-        "description": "يتطلب موافقات متعددة لإطلاق الأموال"
-      },
-      "disputeResolution": {
-        "title": "حل النزاعات",
-        "description": "عملية تحكيم عادلة للنزاعات"
-      }
-    }
-  },
-  "nftRisk": {
-    "title": "تحليل مخاطر NFT",
-    "description": "تقييم شامل لمجموعات NFT والأسواق",
-    "features": {
-      "authenticity": {
-        "title": "التحقق من الأصالة",
-        "description": "كشف NFTs المزيفة والمسروقة"
-      },
-      "marketAnalysis": {
-        "title": "تحليل السوق",
-        "description": "كشف التلاعب بالأسعار والتداول الوهمي"
-      },
-      "contractAudit": {
-        "title": "تدقيق العقد",
-        "description": "مراجعة أمنية لعقود NFT الذكية"
-      }
-    }
+    "title": "بوابة الفحص الأمني",
+    "description": "أدخل عنوان إيثريوم لتشغيل تحليل مخاطر فوري عبر وحدات القوائم السوداء والعقود الذكية والتسميم والعناوين الخارجية.",
+    "inputLabel": "العنوان المستهدف",
+    "inputPlaceholder": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "fromLabel": "عنوان الموقّع (from)",
+    "chainIdLabel": "معرّف الشبكة",
+    "valueLabel": "قيمة المعاملة (ETH)",
+    "historyLabel": "العناوين السابقة (مفصولة بفاصلة)",
+    "dataLabel": "بيانات المعاملة (hex)",
+    "dataPlaceholder": "0x095ea7b3000000000000000000000000...",
+    "externalSignalsLabel": "إشارات خارجية (سطر لكل إشارة)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|تفاعل عقد خبيث",
+    "externalSignalsHelp": "الصيغة: source|severity|id|note",
+    "submit": "تحليل العنوان",
+    "analyzing": "جاري التحليل...",
+    "idleHint": "قم بتشغيل فحص لرؤية تفاصيل كل وحدة كشف ومستوى الثقة."
   },
   "services": {
-    "title": "خدماتنا",
-    "description": "حلول أمان Web3 شاملة لكل حالة استخدام",
-    "realTimeMonitoring": {
-      "title": "المراقبة في الوقت الفعلي",
-      "description": "مراقبة على مدار الساعة لأنشطة البلوكشين"
-    },
-    "riskAssessment": {
-      "title": "تقييم المخاطر",
-      "description": "تقييم تلقائي لمخاطر المعاملات"
-    },
-    "incidentResponse": {
-      "title": "الاستجابة للحوادث",
-      "description": "استجابة سريعة للتهديدات الأمنية"
-    },
-    "compliance": {
-      "title": "حلول الامتثال",
-      "description": "الامتثال التنظيمي وإعداد التقارير"
-    }
+    "title": "وحدات الحماية الأساسية",
+    "addressPoisoningTitle": "الدفاع ضد تسميم العناوين",
+    "addressPoisoningBody": "نستخدم قياس التشابه واكتشاف التطابق في البداية والنهاية لرصد العناوين المقلدة بسرعة عالية.",
+    "contractAuditTitle": "تدقيق العقود الذكية",
+    "contractAuditBody": "فحص أنماط البايت كود والعمليات الخطرة لاكتشاف السلوكيات المعروفة قبل الموافقة.",
+    "riskScoringTitle": "تقييم المخاطر اللحظي",
+    "riskScoringBody": "دمج إشارات السلوك والقيمة والذكاء الخارجي لإنتاج قرار واضح: سماح أو مراجعة أو حظر."
   },
   "architecture": {
     "title": "البنية التقنية",
-    "description": "مبني للتوسع، محسّن للسرعة",
-    "frontend": {
-      "title": "طبقة الواجهة الأمامية",
-      "tech": "Next.js 15 + TypeScript"
-    },
-    "api": {
-      "title": "بوابة API",
-      "tech": "RESTful + WebSocket"
-    },
-    "ml": {
-      "title": "محرك التعلم الآلي",
-      "tech": "TensorFlow + نماذج مخصصة"
-    },
-    "blockchain": {
-      "title": "مفهرس البلوكشين",
-      "tech": "دعم متعدد السلاسل"
-    },
-    "database": {
-      "title": "طبقة قاعدة البيانات",
-      "tech": "PostgreSQL + Redis"
-    }
-  },
-  "footer": {
-    "tagline": "منصة أمان Web3 على مستوى المؤسسات",
-    "product": "المنتج",
-    "features": "الميزات",
-    "pricing": "التسعير",
-    "documentation": "التوثيق",
-    "developers": "المطورون",
-    "api": "مرجع API",
-    "sdks": "مجموعات تطوير البرمجيات",
-    "guides": "أدلة الاستخدام",
-    "company": "الشركة",
-    "about": "من نحن",
-    "blog": "المدونة",
-    "careers": "الوظائف",
-    "contact": "اتصل بنا",
-    "legal": "قانوني",
-    "privacy": "سياسة الخصوصية",
-    "terms": "شروط الخدمة",
-    "security": "الأمان",
-    "rights": "جميع الحقوق محفوظة."
+    "pipelineTitle": "خط سير التحليل",
+    "p1": "التحقق من الإدخال وتوحيد صيغة العنوان",
+    "p2": "تشغيل وحدات الكشف (التسميم، العقد، القروض السريعة)",
+    "p3": "دمج الاستخبارات الخارجية مع الاستمرارية عند تعطل المصدر",
+    "p4": "إرجاع القرار مع الثقة والتفسير",
+    "stackTitle": "مكدس المنصة",
+    "stackBody": "Next.js App Router مع واجهة API مكتوبة ونواة مخاطر محسنة وربط محافظ Wagmi مع تعريب كامل عبر next-intl."
   },
   "dashboard": {
-    "title": "لوحة التحكم الأمنية",
-    "overview": "نظرة عامة",
-    "alerts": "التنبيهات",
-    "transactions": "المعاملات",
-    "analytics": "التحليلات"
+    "title": "لوحة عمليات الأمان",
+    "subtitle": "راقب مخاطر المحافظ، وحاكي المعاملات قبل التوقيع، واضبط الإشعارات لتهديدات الوقت الحقيقي.",
+    "liveThreatsTitle": "موجز التهديدات المباشر"
   },
   "developers": {
     "title": "بوابة المطورين",
-    "gettingStarted": "البدء",
-    "apiReference": "مرجع API",
-    "documentation": "التوثيق"
+    "subtitle": "ادمج محرك القرارات الخاص بـ UAE7Guard داخل تطبيقاتك أو البوابات الخلفية أو سياسات التوقيع.",
+    "apiTitle": "استخدام الواجهة البرمجية",
+    "apiBody": "استخدم POST /api/analyze للحصول على تحليل مخاطر سريع مع مستوى ثقة وتفصيل للوحدات.",
+    "sdkTitle": "وحدات جاهزة للدمج",
+    "sdkBody": "تم فصل محرك المخاطر في ملف lib/optimized_risk_engine.js ليعمل مباشرة في بيئة Node.js.",
+    "docsTitle": "التشغيل والإطلاق",
+    "docsBody": "راجع PRODUCTION_GUIDE.md و DEPLOY_COMMANDS.md لإعداد Vercel والمتغيرات البيئية والدومين."
   },
   "notifications": {
-    "title": "إعدادات الإشعارات",
-    "telegram": "إشعارات تيليجرام",
-    "discord": "إشعارات ديسكورد",
-    "botToken": "رمز البوت",
-    "chatId": "معرّف الدردشة",
-    "webhookUrl": "رابط الويب هوك",
-    "enabled": "مفعّل",
-    "disabled": "معطّل",
-    "testNotification": "إرسال إشعار تجريبي",
-    "alertTypes": "أنواع التنبيهات",
-    "saveConfiguration": "حفظ الإعدادات",
-    "saving": "جارٍ الحفظ...",
-    "savedSuccessfully": "تم حفظ الإعدادات بنجاح!",
-    "saveFailed": "فشل حفظ الإعدادات",
-    "addressPoisoningAlerts": "تنبيهات تسميم العناوين",
-    "suspiciousApprovals": "الموافقات المشبوهة",
-    "highRiskTransactions": "المعاملات عالية المخاطر",
-    "rugPullAlerts": "تنبيهات السحب المفاجئ",
-    "nftScams": "عمليات احتيال NFT"
+    "title": "محرك التنبيهات",
+    "telegram": "رابط Telegram Bot",
+    "discord": "رابط Discord Webhook",
+    "save": "حفظ إعدادات التنبيه",
+    "saved": "تم الحفظ"
   },
-  "transactionSimulator": {
+  "simulator": {
     "title": "محاكي المعاملات",
-    "description": "اختبر المعاملات قبل التوقيع لفهم ما سيحدث بالضبط",
-    "simulating": "جارٍ المحاكاة...",
-    "whatWillHappen": "ما الذي سيحدث:",
-    "criticalRisks": "مخاطر حرجة تم اكتشافها",
-    "warnings": "تحذيرات",
-    "from": "من",
-    "to": "إلى",
-    "gasEstimate": "تقدير الغاز",
-    "rejectTransaction": "رفض المعاملة",
-    "signTransaction": "توقيع المعاملة",
-    "signAnyway": "التوقيع على أي حال (غير مستحسن)",
-    "transferTransaction": "معاملة تحويل",
-    "approvalTransaction": "معاملة موافقة",
-    "swapTransaction": "معاملة تبادل",
-    "mintTransaction": "معاملة سك",
-    "unknownTransaction": "معاملة غير معروفة"
+    "address": "عنوان المستلم / العقد",
+    "from": "عنوان الموقّع (from)",
+    "chainId": "معرّف الشبكة",
+    "data": "بيانات المعاملة (hex)",
+    "value": "القيمة (ETH)",
+    "history": "العناوين الأخيرة (مفصولة بفاصلة)",
+    "externalSignals": "إشارات خارجية (سطر لكل إشارة)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|تفاعل عقد خبيث",
+    "externalSignalsHelp": "الصيغة: source|severity|id|note",
+    "simulate": "محاكاة المعاملة",
+    "simulating": "جاري المحاكاة..."
   },
-  "dashboard": {
-    "title": "لوحة التحكم الأمنية",
-    "overview": "نظرة عامة",
-    "alerts": "التنبيهات",
-    "transactions": "المعاملات",
-    "analytics": "التحليلات",
-    "liveThreatFeed": "موجز التهديدات المباشر",
-    "notificationStatus": "حالة الإشعارات",
-    "noThreatsDetected": "لم يتم اكتشاف تهديدات في الساعة الماضية",
-    "notificationsConfigured": "تم تكوين الإشعارات",
-    "noNotificationsConfigured": "لم يتم تكوين الإشعارات",
-    "configureNotifications": "قم بتكوين إشعارات تيليجرام أو ديسكورد في علامة التبويب الإشعارات لتلقي تنبيهات التهديدات في الوقت الفعلي.",
-    "externalThreatIntel": "استخبارات التهديدات الخارجية"
+  "simulation": {
+    "title": "نتائج المحاكاة",
+    "status": "الحالة",
+    "source": "المصدر",
+    "reason": "السبب",
+    "usedChain": "الشبكة",
+    "errors": "أخطاء المحاكاة",
+    "reverted": "تم التراجع",
+    "delegateCallDetected": "اكتشاف DelegateCall",
+    "selfDestructDetected": "اكتشاف Selfdestruct",
+    "createdContract": "إنشاء عقد",
+    "unlimitedApprovalDetected": "موافقة غير محدودة",
+    "touchedUnknownContracts": "عقود غير معروفة تم لمسها",
+    "trueValue": "نعم",
+    "falseValue": "لا",
+    "statusOk": "سليم",
+    "statusError": "خطأ",
+    "statusSkipped": "تم التجاوز",
+    "sourceServer": "تتبّع الخادم",
+    "sourceClient": "Fallback من العميل",
+    "sourceNone": "غير متاح"
+  },
+  "wallet": {
+    "title": "محلل محافظ ويب3",
+    "desc": "اربط محفظتك وشغل تحليل المخاطر في الوقت الحقيقي قبل التفاعل مع العقود.",
+    "analyze": "تحليل المحفظة المتصلة",
+    "connectFirst": "قم بربط محفظة أولًا لبدء تحليل المخاطر."
+  },
+  "usage": {
+    "title": "لوحة الاستخدام والتقييم",
+    "subtitle": "صفِّ حركة المستأجرين، وصدّر CSV، وراقب مؤشرات الدقة والاستدعاء ومعدل الإنذارات الكاذبة."
   }
 }

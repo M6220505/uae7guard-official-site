@@ -1,267 +1,124 @@
 {
   "nav": {
-    "scanner": "Scanner",
+    "home": "Home",
     "dashboard": "Dashboard",
     "developers": "Developers",
-    "docs": "Docs",
-    "getApiKey": "Get API Key",
-    "connectWallet": "Connect Wallet",
-    "disconnect": "Disconnect"
+    "usage": "Usage",
+    "switchLanguage": "Switch language"
   },
   "hero": {
-    "badge": "100% Detection Rate Achieved",
-    "title": "UAE7Guard",
-    "subtitle": "Enterprise Web3 Security",
-    "description": "Real-time threat detection and risk assessment for blockchain transactions.",
-    "subDescription": "Sub-100ms latency. Production-ready.",
-    "tryScanner": "Try Security Scanner",
-    "viewArchitecture": "View Architecture",
-    "scrollToExplore": "Scroll to explore",
-    "stats": {
-      "detectionRate": "Detection Rate",
-      "responseLatency": "Response Latency",
-      "realTimeProtection": "Real-time Protection"
-    }
+    "badge": "Enterprise-grade Web3 Security Platform V2.5",
+    "title": "Real-time Blockchain Risk Analysis with sub-100ms response",
+    "subtitle": "UAE7Guard protects transactions before signing using multi-vector threat detection, external intelligence, and transparent confidence scoring.",
+    "primaryCta": "Run Live Scan",
+    "secondaryCta": "Open Security Dashboard",
+    "statDetection": "Detection Accuracy",
+    "statLatency": "Decision Latency",
+    "statCoverage": "Threat Monitoring"
   },
   "scanner": {
     "title": "Security Scanner Portal",
-    "description": "Real-time risk assessment powered by our optimized detection engine",
-    "placeholder": "Enter Ethereum address (0x...)",
-    "analyze": "Analyze Address",
+    "description": "Submit an Ethereum address to run instant V2.5 risk analysis across blacklist, smart-contract, poisoning, flash-loan, and external intelligence modules.",
+    "inputLabel": "Target Address",
+    "inputPlaceholder": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "fromLabel": "Signer Address (from)",
+    "chainIdLabel": "Chain ID",
+    "valueLabel": "Transaction Value (ETH)",
+    "historyLabel": "Historical Counterparties (comma-separated)",
+    "dataLabel": "Transaction Data (hex)",
+    "dataPlaceholder": "0x095ea7b3000000000000000000000000...",
+    "externalSignalsLabel": "External Signals (one per line)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|Malicious contract interaction",
+    "externalSignalsHelp": "Format: source|severity|id|note",
+    "submit": "Analyze Address",
     "analyzing": "Analyzing...",
-    "tryExamples": "Try examples:",
-    "zeroAddress": "Zero Address",
-    "newWallet": "New Wallet",
-    "invalidAddress": "Please enter a valid Ethereum address (42 characters)",
-    "analysisFailed": "Analysis failed. Please try again.",
-    "risk": "Risk",
-    "riskBreakdown": "Risk Breakdown",
-    "analysisDetails": "Analysis Details",
-    "threatType": "Threat Type",
-    "confidence": "Confidence",
-    "detectionModules": "Detection Modules",
-    "addressPoisoning": "Address Poisoning Analysis",
-    "similarity": "Similarity",
-    "poisoningDetected": "⚠️ Poisoning Detected",
-    "contractSafety": "Smart Contract Safety",
-    "overallRisk": "Overall Risk",
-    "safe": "✓ Safe",
-    "unsafe": "⚠️ Unsafe"
-  },
-  "aiScamDetection": {
-    "title": "AI-Powered Scam Detection",
-    "description": "Advanced machine learning models to detect phishing attempts, rug pulls, and social engineering attacks",
-    "features": {
-      "phishing": {
-        "title": "Phishing Detection",
-        "description": "Real-time analysis of URLs and contract interactions"
-      },
-      "rugPull": {
-        "title": "Rug Pull Prevention",
-        "description": "Liquidity lock verification and ownership analysis"
-      },
-      "socialEngineering": {
-        "title": "Social Engineering Protection",
-        "description": "Pattern recognition for common scam tactics"
-      }
-    }
-  },
-  "walletMonitoring": {
-    "title": "24/7 Wallet Monitoring",
-    "description": "Continuous surveillance of your crypto assets with instant threat alerts",
-    "features": {
-      "realTime": {
-        "title": "Real-time Alerts",
-        "description": "Instant notifications for suspicious transactions"
-      },
-      "multiAsset": {
-        "title": "Multi-Asset Support",
-        "description": "Monitor tokens, NFTs, and DeFi positions"
-      },
-      "customRules": {
-        "title": "Custom Alert Rules",
-        "description": "Set personalized thresholds and conditions"
-      }
-    }
-  },
-  "multiChain": {
-    "title": "Multi-Chain Support",
-    "description": "Comprehensive security across all major blockchain networks",
-    "chains": {
-      "ethereum": "Ethereum",
-      "solana": "Solana",
-      "polygon": "Polygon",
-      "bnb": "BNB Chain",
-      "avalanche": "Avalanche",
-      "arbitrum": "Arbitrum"
-    }
-  },
-  "escrow": {
-    "title": "Secure Escrow Services",
-    "description": "Trustless transactions with smart contract protection",
-    "features": {
-      "smartContract": {
-        "title": "Smart Contract Escrow",
-        "description": "Automated release based on conditions"
-      },
-      "multiSig": {
-        "title": "Multi-Signature Support",
-        "description": "Require multiple approvals for fund release"
-      },
-      "disputeResolution": {
-        "title": "Dispute Resolution",
-        "description": "Fair arbitration process for conflicts"
-      }
-    }
-  },
-  "nftRisk": {
-    "title": "NFT Risk Analysis",
-    "description": "Comprehensive evaluation of NFT collections and marketplaces",
-    "features": {
-      "authenticity": {
-        "title": "Authenticity Verification",
-        "description": "Detect counterfeit and stolen NFTs"
-      },
-      "marketAnalysis": {
-        "title": "Market Analysis",
-        "description": "Price manipulation and wash trading detection"
-      },
-      "contractAudit": {
-        "title": "Contract Audit",
-        "description": "Security review of NFT smart contracts"
-      }
-    }
+    "idleHint": "Run a scan to see module-level threat breakdowns and confidence metrics."
   },
   "services": {
-    "title": "Our Services",
-    "description": "Comprehensive Web3 security solutions for every use case",
-    "realTimeMonitoring": {
-      "title": "Real-time Monitoring",
-      "description": "24/7 surveillance of blockchain activities"
-    },
-    "riskAssessment": {
-      "title": "Risk Assessment",
-      "description": "Automated evaluation of transaction risks"
-    },
-    "incidentResponse": {
-      "title": "Incident Response",
-      "description": "Rapid response to security threats"
-    },
-    "compliance": {
-      "title": "Compliance Solutions",
-      "description": "Regulatory compliance and reporting"
-    }
+    "title": "Core Protection Modules",
+    "addressPoisoningTitle": "Address Poisoning Defense",
+    "addressPoisoningBody": "Levenshtein and prefix/suffix similarity checks detect lookalike wallets with low-latency execution.",
+    "contractAuditTitle": "Smart Contract Auditing",
+    "contractAuditBody": "Bytecode pattern checks and dangerous opcode heuristics flag known exploit patterns before approval.",
+    "riskScoringTitle": "Real-time Risk Scoring",
+    "riskScoringBody": "Weighted scoring across age, behavior, value flow, and external intelligence yields a transparent allow/review/block decision."
   },
   "architecture": {
     "title": "Technical Architecture",
-    "description": "Built for scale, optimized for speed",
-    "frontend": {
-      "title": "Frontend Layer",
-      "tech": "Next.js 15 + TypeScript"
-    },
-    "api": {
-      "title": "API Gateway",
-      "tech": "RESTful + WebSocket"
-    },
-    "ml": {
-      "title": "ML Engine",
-      "tech": "TensorFlow + Custom Models"
-    },
-    "blockchain": {
-      "title": "Blockchain Indexer",
-      "tech": "Multi-chain Support"
-    },
-    "database": {
-      "title": "Database Layer",
-      "tech": "PostgreSQL + Redis"
-    }
-  },
-  "footer": {
-    "tagline": "Enterprise-grade Web3 security platform",
-    "product": "Product",
-    "features": "Features",
-    "pricing": "Pricing",
-    "documentation": "Documentation",
-    "developers": "Developers",
-    "api": "API Reference",
-    "sdks": "SDKs",
-    "guides": "Guides",
-    "company": "Company",
-    "about": "About Us",
-    "blog": "Blog",
-    "careers": "Careers",
-    "contact": "Contact",
-    "legal": "Legal",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "security": "Security",
-    "rights": "All rights reserved."
+    "pipelineTitle": "Analysis Pipeline",
+    "p1": "Input validation and address normalization",
+    "p2": "Threat module execution (poisoning, contract, flash loan)",
+    "p3": "External intelligence scoring with graceful degradation",
+    "p4": "Decision + confidence + explanation response",
+    "stackTitle": "Platform Stack",
+    "stackBody": "App Router + typed API route + optimized JavaScript risk engine + Wagmi wallet bridge + next-intl localization."
   },
   "dashboard": {
-    "title": "Security Dashboard",
-    "overview": "Overview",
-    "alerts": "Alerts",
-    "transactions": "Transactions",
-    "analytics": "Analytics"
+    "title": "Security Operations Dashboard",
+    "subtitle": "Monitor wallet risk, simulate transactions before signing, and configure notifications for live threat signals.",
+    "liveThreatsTitle": "Live Threat Feed"
   },
   "developers": {
     "title": "Developer Portal",
-    "gettingStarted": "Getting Started",
-    "apiReference": "API Reference",
-    "documentation": "Documentation"
+    "subtitle": "Integrate UAE7Guard decisioning into your dApp, backend gateway, or signing policy workflow.",
+    "apiTitle": "API Usage",
+    "apiBody": "Use POST /api/analyze for transaction risk analysis in under 100ms with confidence and module-level breakdown.",
+    "sdkTitle": "Integration-Ready Modules",
+    "sdkBody": "Risk engine is separated in lib/optimized_risk_engine.js for direct server-side use in any Node.js environment.",
+    "docsTitle": "Deployment & Operations",
+    "docsBody": "Review PRODUCTION_GUIDE.md and DEPLOY_COMMANDS.md for Vercel deployment, environment setup, and domain configuration."
   },
   "notifications": {
-    "title": "Notification Settings",
-    "telegram": "Telegram Notifications",
-    "discord": "Discord Notifications",
-    "botToken": "Bot Token",
-    "chatId": "Chat ID",
-    "webhookUrl": "Webhook URL",
-    "enabled": "Enabled",
-    "disabled": "Disabled",
-    "testNotification": "Send Test Notification",
-    "alertTypes": "Alert Types",
-    "saveConfiguration": "Save Configuration",
-    "saving": "Saving...",
-    "savedSuccessfully": "Settings saved successfully!",
-    "saveFailed": "Failed to save settings",
-    "addressPoisoningAlerts": "Address Poisoning Alerts",
-    "suspiciousApprovals": "Suspicious Approvals",
-    "highRiskTransactions": "High Risk Transactions",
-    "rugPullAlerts": "Rug Pull Alerts",
-    "nftScams": "NFT Scams"
+    "title": "Notification Engine",
+    "telegram": "Telegram Bot Endpoint",
+    "discord": "Discord Webhook URL",
+    "save": "Save Notification Settings",
+    "saved": "Saved"
   },
-  "transactionSimulator": {
+  "simulator": {
     "title": "Transaction Simulator",
-    "description": "Test transactions before signing to understand exactly what will happen",
-    "simulating": "Simulating...",
-    "whatWillHappen": "What will happen:",
-    "criticalRisks": "Critical Risks Detected",
-    "warnings": "Warnings",
-    "from": "From",
-    "to": "To",
-    "gasEstimate": "Gas Estimate",
-    "rejectTransaction": "Reject Transaction",
-    "signTransaction": "Sign Transaction",
-    "signAnyway": "Sign Anyway (Not Recommended)",
-    "transferTransaction": "Transfer Transaction",
-    "approvalTransaction": "Approval Transaction",
-    "swapTransaction": "Swap Transaction",
-    "mintTransaction": "Mint Transaction",
-    "unknownTransaction": "Unknown Transaction"
+    "address": "Recipient / Contract Address",
+    "from": "Signer Address (from)",
+    "chainId": "Chain ID",
+    "data": "Transaction Data (hex)",
+    "value": "Value (ETH)",
+    "history": "Recent addresses (comma-separated)",
+    "externalSignals": "External Signals (one per line)",
+    "externalSignalsPlaceholder": "forta-bot-123|high|alert-7781|Malicious contract interaction",
+    "externalSignalsHelp": "Format: source|severity|id|note",
+    "simulate": "Simulate Transaction",
+    "simulating": "Simulating..."
   },
-  "dashboard": {
-    "title": "Security Dashboard",
-    "overview": "Overview",
-    "alerts": "Alerts",
-    "transactions": "Transactions",
-    "analytics": "Analytics",
-    "liveThreatFeed": "Live Threat Feed",
-    "notificationStatus": "Notification Status",
-    "noThreatsDetected": "No threats detected in the last hour",
-    "notificationsConfigured": "Notifications Configured",
-    "noNotificationsConfigured": "No Notifications Configured",
-    "configureNotifications": "Configure Telegram or Discord notifications in the Notifications tab to receive real-time threat alerts.",
-    "externalThreatIntel": "External Threat Intelligence"
+  "simulation": {
+    "title": "Simulation Insights",
+    "status": "Status",
+    "source": "Source",
+    "reason": "Reason",
+    "usedChain": "Chain",
+    "errors": "Simulation Errors",
+    "reverted": "Reverted",
+    "delegateCallDetected": "DelegateCall Detected",
+    "selfDestructDetected": "Selfdestruct Detected",
+    "createdContract": "Contract Creation",
+    "unlimitedApprovalDetected": "Unlimited Approval",
+    "touchedUnknownContracts": "Touched Unknown Contracts",
+    "trueValue": "Yes",
+    "falseValue": "No",
+    "statusOk": "OK",
+    "statusError": "Error",
+    "statusSkipped": "Skipped",
+    "sourceServer": "Server Trace",
+    "sourceClient": "Client Fallback",
+    "sourceNone": "Not Available"
+  },
+  "wallet": {
+    "title": "Web3 Wallet Analyzer",
+    "desc": "Connect your wallet and run real-time risk analysis before interacting with contracts.",
+    "analyze": "Analyze Connected Wallet",
+    "connectFirst": "Connect a wallet to start wallet-level analysis."
+  },
+  "usage": {
+    "title": "Usage and Evaluation",
+    "subtitle": "Filter tenant traffic, export CSV, and monitor precision/recall/FPR metrics."
   }
 }
