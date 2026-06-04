@@ -19,8 +19,9 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-800/90 bg-zinc-950/80 backdrop-blur-lg">
       <div className="container-shell flex h-16 items-center justify-between gap-4">
-        <Link href={`/${locale}`} className="text-base font-semibold tracking-wide text-white">
-          UAE7Guard
+        <Link href={`/${locale}`} className="flex items-center gap-2">
+          <img src="/logo.jpg" alt="UAE7Guard" className="h-8 w-8 rounded-lg object-cover" />
+          <span className="text-base font-semibold tracking-wide text-white">UAE7Guard</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
