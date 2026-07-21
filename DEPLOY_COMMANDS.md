@@ -1,208 +1,109 @@
-# Deployment Guide for UAE7Guard
+# UAE7Guard Non-Vercel Deployment Commands
 
-This guide provides step-by-step instructions to deploy your UAE7Guard application to production.
+This project does **not** require Vercel. Use these commands for Render, Railway, Docker, DigitalOcean, AWS, or a VPS.
 
-## Prerequisites
-
-Before deploying, ensure you have:
-- A GitHub account
-- A Vercel account (free tier available)
-- Git installed on your machine
-- All environment variables ready (see `.env.example`)
-
-## Step 1: Create Environment Variables
-
-Before deploying, copy your `.env.example` to `.env.local` and fill in the required values:
+## Step 1: Verify locally
 
 ```bash
-cp .env.example .env.local
+npm ci
+npm run test:unit
+npm run test:e2e
+npm run lint
+npm run build
 ```
 
-Edit `.env.local` with your actual values:
-- `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`: Get from https://cloud.walletconnect.com/
-- `NEXT_PUBLIC_ALCHEMY_API_KEY`: Get from https://www.alchemy.com/
-- Add any other required API keys
-
-⚠️ **IMPORTANT**: Never commit `.env.local` to Git. It's already in `.gitignore`.
-
-## Step 2: Commit Your Code
-
-Stage and commit all changes:
+## Step 2: Push the correct branch
 
 ```bash
-# Check current status
 git status
-
-# Add all files
-git add .
-
-# Create a commit
-git commit -m "Initial production-ready build
-
-- Configured internationalization with next-intl
-- Set up Web3 integration with RainbowKit and Wagmi
-- Implemented multi-language support (EN/AR)
-- Added risk analysis engine
-- Production build verified
-
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+git log --oneline -n 5
+git push origin HEAD
 ```
 
-## Step 3: Create GitHub Repository
+## Step 3: Production environment variables
 
-### Option A: Using GitHub CLI (Recommended)
-
-If you have GitHub CLI installed:
-
-```bash
-# Create a new private repository
-gh repo create uae7guard-official-site --private --source=. --remote=origin --push
-
-# Or create a public repository
-gh repo create uae7guard-official-site --public --source=. --remote=origin --push
-```
-
-### Option B: Using Git Commands
-
-1. Go to https://github.com/new and create a new repository named `uae7guard-official-site`
-2. Choose public or private
-3. Do NOT initialize with README, .gitignore, or license (you already have these)
-4. After creating, run these commands:
-
-```bash
-# Add the remote (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/uae7guard-official-site.git
-
-# Push to GitHub
-git push -u origin main
-```
-
-## Step 4: Deploy to Vercel
-
-### Option A: One-Click Deploy (Fastest)
-
-Click this button to deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fuae7guard-official-site&env=NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,NEXT_PUBLIC_ALCHEMY_API_KEY&envDescription=Required%20API%20keys%20for%20Web3%20functionality&envLink=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fuae7guard-official-site%2Fblob%2Fmain%2F.env.example)
-
-**Update the URL** in the button above after creating your GitHub repository.
-
-### Option B: Deploy via Vercel CLI
-
-```bash
-# Install Vercel CLI globally
-npm install -g vercel
-
-# Login to Vercel
-vercel login
-
-# Deploy to production
-vercel --prod
-```
-
-Follow the prompts:
-- Set up and deploy? **Y**
-- Which scope? Select your account
-- Link to existing project? **N**
-- Project name: `uae7guard-official-site`
-- Directory: `./` (press Enter)
-- Override settings? **N**
-
-### Option C: Deploy via Vercel Dashboard
-
-1. Go to https://vercel.com/new
-2. Import your GitHub repository
-3. Configure project:
-   - **Framework Preset**: Next.js
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `.next`
-   - **Install Command**: `npm install`
-4. Add Environment Variables (from your `.env.example`):
-   - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`
-   - `NEXT_PUBLIC_ALCHEMY_API_KEY`
-   - Add any other required variables
-5. Click **Deploy**
-
-## Step 5: Verify Deployment
-
-After deployment, Vercel will provide a URL (e.g., `https://uae7guard-official-site.vercel.app`).
-
-Visit your site and verify:
-- ✅ Homepage loads correctly
-- ✅ Language switcher works (EN/AR)
-- ✅ Web3 wallet connection works
-- ✅ All pages are accessible
-- ✅ API routes respond correctly
-
-## Environment Variables for Production
-
-Required environment variables (add these in Vercel dashboard):
+Add these in your platform dashboard or `.env.production` file:
 
 ```env
-# WalletConnect Project ID (Required for Web3)
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
-
-# Alchemy API Key (Required for blockchain interactions)
-NEXT_PUBLIC_ALCHEMY_API_KEY=your_alchemy_api_key_here
-
-# Optional: Analytics, monitoring, etc.
-# Add any additional variables your application needs
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_project_id
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+NEXT_PUBLIC_ALCHEMY_API_KEY=your_public_alchemy_key
+ALCHEMY_API_KEY=your_server_side_alchemy_key
+ETHERSCAN_API_KEY=your_etherscan_key
+API_RATE_LIMIT_WINDOW_MS=60000
+API_RATE_LIMIT_MAX=30
 ```
 
-## Custom Domain (Optional)
+Do not set `UAE7GUARD_API_KEY` for the first public frontend MVP unless your frontend/API clients send `x-api-key`.
 
-To add a custom domain:
+## Option A: Render or Railway
 
-1. Go to your Vercel project dashboard
-2. Click **Settings** → **Domains**
-3. Add your domain (e.g., `uae7guard.com`)
-4. Follow Vercel's DNS configuration instructions
-5. Wait for DNS propagation (usually 15 minutes to 24 hours)
+Build command:
 
-## Continuous Deployment
+```bash
+npm ci && npm run build
+```
 
-Once connected to GitHub, Vercel will automatically:
-- Deploy on every push to `main` branch
-- Create preview deployments for pull requests
-- Run build checks before deploying
+Start command:
 
-## Troubleshooting
+```bash
+npm run start
+```
 
-### Build Fails on Vercel
+Then add the environment variables above and connect your custom domain.
 
-1. Check build logs in Vercel dashboard
-2. Ensure all environment variables are set
-3. Verify `package.json` scripts are correct
-4. Test build locally: `npm run build`
+## Option B: Docker
 
-### Environment Variables Not Working
+On macOS, use Docker Desktop. Do not run `apt-get`; it is Linux-only.
 
-1. Make sure variables start with `NEXT_PUBLIC_` for client-side access
-2. Redeploy after adding new environment variables
-3. Check variable names match exactly (case-sensitive)
+```bash
+cp .env.example .env.production
+open -e .env.production
+docker build -t uae7guard-official-site:test .
+docker rm -f uae7guard 2>/dev/null || true
+docker run -d --name uae7guard --restart unless-stopped \
+  --env-file .env.production \
+  -p 3000:3000 \
+  uae7guard-official-site:test
+```
 
-### 404 Errors
+Then open `http://localhost:3000`.
 
-1. Verify all pages are under `app/[locale]/` directory
-2. Check middleware.ts is configured correctly
-3. Review Vercel deployment logs
+## Option C: Docker Compose
 
-## Additional Resources
+Use Compose only if `docker compose version` works. If your Docker install says `unknown command` or `unknown shorthand flag: 'f'`, use Option B instead.
 
-- [Vercel Documentation](https://vercel.com/docs)
-- [Next.js Deployment](https://nextjs.org/docs/deployment)
-- [GitHub CLI](https://cli.github.com/)
-- [WalletConnect Cloud](https://cloud.walletconnect.com/)
-- [Alchemy Dashboard](https://www.alchemy.com/)
+```bash
+cp .env.example .env.production
+open -e .env.production
+docker compose -f docker-compose.example.yml up -d --build
+```
 
-## Support
+## Option D: PM2 on a VPS
 
-If you encounter issues:
-1. Check Vercel deployment logs
-2. Review Next.js documentation
-3. Verify all environment variables are set correctly
-4. Ensure your local build succeeds: `npm run build`
+```bash
+npm ci
+npm run build
+npm install -g pm2
+pm2 start npm --name uae7guard -- run start
+pm2 save
+pm2 startup
+```
 
----
+Put Nginx, Caddy, Cloudflare Tunnel, or your cloud load balancer in front of port `3000` for HTTPS.
 
-**Note**: This project is production-ready. The build has been verified and all dependencies are properly configured.
+## Smoke tests after deployment
+
+```bash
+curl -I https://your-domain.com/
+curl -X POST https://your-domain.com/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"address":"0x000000000000000000000000000000000000dEaD","chainId":1}'
+curl -X POST https://your-domain.com/api/scam-detect \
+  -H "Content-Type: application/json" \
+  -d '{"text":"urgent claim verify wallet seed phrase telegram","url":"https://wallet-airdrop-verify.example"}'
+```
+
+## Detailed guide
+
+See [`docs/non-vercel-deployment.md`](./docs/non-vercel-deployment.md).

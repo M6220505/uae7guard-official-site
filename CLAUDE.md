@@ -115,8 +115,8 @@ Defined in `.env.example`. Create `.env.local` locally (never commit it).
 
 ```env
 # Web3 Providers
-NEXT_PUBLIC_ALCHEMY_ID=               # Alchemy API key for on-chain data
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID= # WalletConnect project ID
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=  # WalletConnect project ID (required)
+NEXT_PUBLIC_ALCHEMY_API_KEY=          # Alchemy API key for RPC transports (optional)
 
 # Notification Engine
 TELEGRAM_BOT_TOKEN=                   # Telegram bot token
@@ -170,7 +170,7 @@ NEXT_PUBLIC_APP_URL=https://uae7guard.com
 
 - Wallet connection is handled by **RainbowKit** + **Wagmi** configured in `lib/web3-provider.tsx` and `lib/wagmi.ts`.
 - Supported chains and transport providers are configured in `lib/wagmi.ts`.
-- `NEXT_PUBLIC_ALCHEMY_ID` and `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` must be set for wallet features to work.
+- `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` must be set for wallet connection; `NEXT_PUBLIC_ALCHEMY_API_KEY` is optional and enables Alchemy-backed RPC transports for supported chains.
 
 ### API Routes
 

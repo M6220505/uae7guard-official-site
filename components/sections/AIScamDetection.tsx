@@ -18,15 +18,15 @@ export default function AIScamDetection() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm">
-            <span className="text-purple-400 text-sm font-medium">🧠 Powered by Advanced AI</span>
+            <span className="text-purple-400 text-sm font-medium">🧠 AI-Assisted Scam Signals</span>
           </div>
 
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600">
             AI-Powered Scam Detection
           </h2>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Our behavioral analysis engine uses machine learning to identify suspicious patterns
-            that traditional security tools miss
+            Our behavioral analysis engine combines rule-based checks, social-engineering cues, and threat context to flag suspicious patterns
+            with clear limitations instead of unverified accuracy claims
           </p>
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function AIScamDetection() {
                 'Transaction velocity analysis',
                 'Wallet interaction graph mapping',
                 'Anomaly detection algorithms',
-                'Real-time learning from new threats'
+                'Threat-feed enrichment where configured'
               ].map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-sm text-zinc-400">
                   <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -86,8 +86,8 @@ export default function AIScamDetection() {
             <ul className="space-y-3">
               {[
                 'Domain reputation scoring',
-                'Visual fingerprinting of fake sites',
-                'SSL certificate verification',
+                'Fake-site and wallet-drainer pattern checks',
+                'Suspicious link and invite detection',
                 'Cross-reference with known scams'
               ].map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-sm text-zinc-400">
@@ -110,10 +110,10 @@ export default function AIScamDetection() {
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12"
         >
           {[
-            { value: '99.9%', label: 'Scam Detection Rate', color: 'purple' },
-            { value: '50ms', label: 'Analysis Time', color: 'pink' },
-            { value: '2M+', label: 'Patterns Analyzed', color: 'purple' },
-            { value: '<0.1%', label: 'False Positives', color: 'pink' }
+            { value: 'Rules + AI', label: 'Scam Signals', color: 'purple' },
+            { value: 'Fast', label: 'Analysis Flow', color: 'pink' },
+            { value: 'Live feeds', label: 'Threat Context', color: 'purple' },
+            { value: 'Reviewed', label: 'Confidence Notes', color: 'pink' }
           ].map((stat, idx) => (
             <div key={idx} className={`p-6 rounded-xl bg-zinc-900/50 border border-${stat.color}-500/20 backdrop-blur-sm text-center`}>
               <div className={`text-3xl font-bold text-${stat.color}-400 mb-2`}>{stat.value}</div>

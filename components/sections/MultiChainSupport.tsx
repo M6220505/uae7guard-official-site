@@ -11,7 +11,7 @@ export default function MultiChainSupport() {
       gradient: 'from-indigo-500 to-purple-500',
       features: ['ERC-20 Tokens', 'Smart Contracts', 'Layer 2s', 'NFTs'],
       status: 'Live',
-      txCount: '2.4M+'
+      txCount: 'EVM RPC + explorer'
     },
     {
       name: 'Solana',
@@ -19,8 +19,8 @@ export default function MultiChainSupport() {
       color: 'purple',
       gradient: 'from-purple-500 to-pink-500',
       features: ['SPL Tokens', 'NFTs', 'DeFi Protocols', 'Fast Finality'],
-      status: 'Live',
-      txCount: '1.8M+'
+      status: 'Roadmap',
+      txCount: 'Roadmap coverage'
     },
     {
       name: 'Polygon',
@@ -29,7 +29,7 @@ export default function MultiChainSupport() {
       gradient: 'from-violet-500 to-purple-500',
       features: ['MATIC', 'Low Gas', 'Scaling', 'zkEVM'],
       status: 'Live',
-      txCount: '1.2M+'
+      txCount: 'Explorer enriched'
     },
     {
       name: 'BNB Chain',
@@ -38,7 +38,7 @@ export default function MultiChainSupport() {
       gradient: 'from-yellow-500 to-orange-500',
       features: ['BEP-20', 'BSC', 'High Speed', 'Low Fees'],
       status: 'Live',
-      txCount: '980K+'
+      txCount: 'Explorer enriched'
     }
   ];
 
@@ -69,8 +69,8 @@ export default function MultiChainSupport() {
             Multi-Chain Support
           </h2>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            One security solution for all major blockchains. Seamless protection across
-            Ethereum, Solana, Polygon, and BNB Chain
+            Practical multi-chain coverage with chain-specific risk context across
+            Ethereum, Polygon, BNB Chain, Base, Arbitrum, and Optimism where configured
           </p>
         </motion.div>
 
@@ -109,7 +109,7 @@ export default function MultiChainSupport() {
 
                 {/* Transaction count */}
                 <div className="mb-4 text-sm text-zinc-500">
-                  {chain.txCount} transactions secured
+                  {chain.txCount}
                 </div>
 
                 {/* Features */}

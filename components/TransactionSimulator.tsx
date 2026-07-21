@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
-import { formatUnits, parseAbiItem } from 'viem';
+import { formatUnits } from 'viem';
 
 interface SimulatedTransaction {
   type: 'transfer' | 'approval' | 'swap' | 'mint' | 'unknown';
@@ -33,8 +33,15 @@ interface SimulatedTransaction {
   summaryAr?: string;
 }
 
+type TransactionData = {
+  to?: string;
+  from?: string;
+  value?: string;
+  data?: string;
+};
+
 interface TransactionSimulatorProps {
-  transactionData?: any;
+  transactionData?: TransactionData;
   onApprove?: () => void;
   onReject?: () => void;
 }
@@ -49,32 +56,39 @@ export default function TransactionSimulator({
   const [simulation, setSimulation] = useState<SimulatedTransaction | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const sampleApproval: TransactionData = {
+    from: address || '0x742d35Cc6634C0532925a3b844Bc454e4438f44e',
+    to: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+    data: '0x095ea7b3000000000000000000000000f00dbabe00000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
+    value: '0',
+  };
+
   useEffect(() => {
     if (transactionData) {
       simulateTransaction(transactionData);
     }
   }, [transactionData]);
 
-  const simulateTransaction = async (txData: any) => {
+  const simulateTransaction = async (txData: TransactionData) => {
     setSimulating(true);
     setError(null);
 
     try {
-      // Simulate delay for API call (in production, call your backend simulation API)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 400));
 
-      // Parse transaction data
+      // Parse transaction data before the user signs it
       const simulation = parseTransactionData(txData);
       setSimulation(simulation);
-    } catch (err: any) {
-      setError(err.message || 'Failed to simulate transaction');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Failed to simulate transaction';
+      setError(message);
     } finally {
       setSimulating(false);
     }
   };
 
-  const parseTransactionData = (txData: any): SimulatedTransaction => {
-    const { to, from, value, data } = txData;
+  const parseTransactionData = (txData: TransactionData): SimulatedTransaction => {
+    const { to = '', from = address || '', value, data } = txData;
 
     // Detect transaction type based on data
     let type: SimulatedTransaction['type'] = 'unknown';
@@ -91,7 +105,7 @@ export default function TransactionSimulator({
       summaryAr = `تحويل ${parseFloat(ethAmount).toFixed(4)} ETH إلى ${to}`;
 
       // Check if sending to new address
-      if (to.toLowerCase().includes('0000') || to.toLowerCase().includes('1111')) {
+      if (to && (to.toLowerCase().includes('0000') || to.toLowerCase().includes('1111'))) {
         warnings.push('Sending to a suspicious-looking address');
       }
     }
@@ -112,13 +126,13 @@ export default function TransactionSimulator({
         : `الموافقة على ${formatUnits(amount, 18)} رموز لـ ${spender}`;
 
       if (isUnlimited) {
-        risks.push('Unlimited approval detected - contract can spend all your tokens');
+        risks.push('If you sign this, this contract can move all of this token from your wallet.');
         risks.push('Consider approving only the required amount');
       }
 
       // Check if spender is verified
       if (!spender.startsWith('0x1') && !spender.startsWith('0x7')) {
-        warnings.push('Unverified contract address');
+        warnings.push('The spender is not recognized by UAE7Guard; verify the website before signing.');
       }
     }
     // ERC-20 transfer
@@ -162,7 +176,7 @@ export default function TransactionSimulator({
       risks.push('Check for similar-named fake collections');
     }
 
-    // Gas estimation (mock - in production, use eth_estimateGas)
+    // Local pre-sign estimate for user education; backend/RPC simulation should replace this for execution decisions.
     const gasEstimate = (21000 + (data?.length || 0) * 16).toString();
 
     return {
@@ -191,10 +205,17 @@ export default function TransactionSimulator({
             />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-white mb-2">Transaction Simulator</h3>
-        <p className="text-zinc-400 text-sm">
-          Initiate a transaction to see a detailed simulation of what will happen
+        <h3 className="text-xl font-bold text-white mb-2">Pre-Sign Transaction Simulator</h3>
+        <p className="text-zinc-400 text-sm mb-6">
+          Preview dangerous approvals before you sign. The goal is simple: explain what a transaction can do in plain language.
         </p>
+        <button
+          type="button"
+          onClick={() => simulateTransaction(sampleApproval)}
+          className="px-5 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-semibold"
+        >
+          Simulate Unlimited USDT Approval
+        </button>
       </div>
     );
   }

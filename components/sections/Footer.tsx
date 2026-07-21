@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
@@ -40,8 +39,8 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><a href="#scanner" className="text-zinc-400 hover:text-emerald-400 transition-colors">Security Scanner</a></li>
               <li><a href="#architecture" className="text-zinc-400 hover:text-emerald-400 transition-colors">Architecture</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-emerald-400 transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-emerald-400 transition-colors">API Reference</a></li>
+              <li><a href="/methodology" className="text-zinc-400 hover:text-emerald-400 transition-colors">Methodology</a></li>
+              <li><a href="/status" className="text-zinc-400 hover:text-emerald-400 transition-colors">API Status</a></li>
             </ul>
           </div>
 
@@ -51,8 +50,8 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><a href="#" className="text-zinc-400 hover:text-emerald-400 transition-colors">Blog</a></li>
               <li><a href="#" className="text-zinc-400 hover:text-emerald-400 transition-colors">Case Studies</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-emerald-400 transition-colors">Security Audit</a></li>
-              <li><a href="#" className="text-zinc-400 hover:text-emerald-400 transition-colors">Contact</a></li>
+              <li><a href="/risk-report" className="text-zinc-400 hover:text-emerald-400 transition-colors">Risk Report</a></li>
+              <li><a href="mailto:security@uae7guard.com" className="text-zinc-400 hover:text-emerald-400 transition-colors">Incident Contact</a></li>
             </ul>
           </div>
         </div>
@@ -63,9 +62,9 @@ export default function Footer() {
             © 2025 UAE7Guard. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-zinc-500 hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            <a href="/privacy" className="text-zinc-500 hover:text-emerald-400 transition-colors">Privacy Policy</a>
             <a href="#" className="text-zinc-500 hover:text-emerald-400 transition-colors">Terms of Service</a>
-            <a href="#" className="text-zinc-500 hover:text-emerald-400 transition-colors">Security</a>
+            <a href="/methodology" className="text-zinc-500 hover:text-emerald-400 transition-colors">Security</a>
           </div>
         </div>
       </div>

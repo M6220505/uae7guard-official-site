@@ -6,7 +6,7 @@ import { LanguageProvider } from "@/lib/language-context";
 
 export const metadata: Metadata = {
   title: "UAE7Guard - Enterprise Web3 Security Platform",
-  description: "AI-powered blockchain security with 24/7 wallet monitoring, multi-chain support, secure escrow, and NFT risk analysis. Sub-100ms threat detection for Ethereum, Solana, Polygon, and BNB Chain.",
+  description: "AI-assisted blockchain risk intelligence with wallet monitoring, multi-chain context, pre-sign warnings, and transparent scoring for MENA users and businesses.",
 };
 
 export default function RootLayout({

@@ -15,8 +15,8 @@ const techStack = [
   {
     category: 'Performance',
     items: [
-      { name: 'Sub-100ms Latency', desc: 'Optimized calculation pipeline' },
-      { name: 'Zero External Dependencies', desc: 'Standalone risk engine' },
+      { name: 'Optimized Risk Pipeline', desc: 'Optimized calculation pipeline' },
+      { name: 'Live Data Inputs', desc: 'RPC, explorer, approval, and threat feeds' },
       { name: 'Efficient Pattern Matching', desc: 'Regex-based detection' },
       { name: 'Real-time Processing', desc: 'Instant threat assessment' },
     ],
@@ -33,9 +33,9 @@ const techStack = [
 ];
 
 const metrics = [
-  { label: 'Detection Rate', value: '100%', desc: 'Across all threat categories', color: 'emerald' },
-  { label: 'Response Time', value: '<100ms', desc: 'Average analysis latency', color: 'cyan' },
-  { label: 'False Positive Rate', value: '<0.1%', desc: 'Industry-leading accuracy', color: 'purple' },
+  { label: 'Risk Signals', value: 'Live', desc: 'RPC, explorer, and threat-feed context', color: 'emerald' },
+  { label: 'Response Context', value: 'Provider-based', desc: 'Latency depends on configured RPC/explorer providers', color: 'cyan' },
+  { label: 'Explainability', value: 'Clear', desc: 'Transparent scoring and limitations', color: 'purple' },
   { label: 'Threat Categories', value: '5+', desc: 'Comprehensive coverage', color: 'orange' },
 ];
 
@@ -54,7 +54,7 @@ export default function TechnicalArchitecture() {
             Technical Architecture
           </h2>
           <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-            Built on cutting-edge algorithms and optimized for production-scale deployment
+            Built around live data inputs, explainable scoring, and production deployment controls
           </p>
         </motion.div>
 

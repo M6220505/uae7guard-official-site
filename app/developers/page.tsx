@@ -106,12 +106,12 @@ export default function Developers() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            API v1 — Production Ready
+            API v1 — Production Controls
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Developer Documentation</h1>
           <p className="text-zinc-400 text-lg max-w-2xl">
             Integrate UAE7Guard&apos;s AI-powered risk engine into your dApp, wallet, or security tooling.
-            Sub-100ms threat detection across 7 chains.
+            Explainable threat detection with latency depending on configured RPC, explorer, and threat-intelligence providers.
           </p>
         </motion.div>
 

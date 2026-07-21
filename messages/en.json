@@ -9,18 +9,18 @@
     "disconnect": "Disconnect"
   },
   "hero": {
-    "badge": "100% Detection Rate Achieved",
+    "badge": "Evidence-based Risk Intelligence",
     "title": "UAE7Guard",
     "subtitle": "Enterprise Web3 Security",
     "description": "Real-time threat detection and risk assessment for blockchain transactions.",
-    "subDescription": "Sub-100ms latency. Production-ready.",
+    "subDescription": "Live-data ready. Transparent scoring.",
     "tryScanner": "Try Security Scanner",
     "viewArchitecture": "View Architecture",
     "scrollToExplore": "Scroll to explore",
     "stats": {
-      "detectionRate": "Detection Rate",
-      "responseLatency": "Response Latency",
-      "realTimeProtection": "Real-time Protection"
+      "detectionRate": "Risk Scoring",
+      "responseLatency": "Risk Signals",
+      "realTimeProtection": "Signing Warnings"
     }
   },
   "scanner": {

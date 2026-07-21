@@ -97,7 +97,7 @@ export default function SecureEscrow() {
               {[
                 {
                   title: 'Smart Contract Verified',
-                  description: 'Audited by top security firms with zero vulnerabilities found'
+                  description: 'Designed for independent audit before handling production funds'
                 },
                 {
                   title: 'Multi-Signature Protection',
@@ -177,10 +177,10 @@ export default function SecureEscrow() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { value: '$125M+', label: 'Total Value Secured' },
-            { value: '12,847', label: 'Successful Escrows' },
-            { value: '99.8%', label: 'Success Rate' },
-            { value: '<0.5%', label: 'Dispute Rate' }
+            { value: 'Planned', label: 'Escrow Module' },
+            { value: 'Policy', label: 'Release Controls' },
+            { value: 'Audit', label: 'Before Mainnet' },
+            { value: 'Clear', label: 'Dispute Flow' }
           ].map((stat, idx) => (
             <div key={idx} className="p-6 rounded-xl bg-zinc-900/50 border border-emerald-500/20 backdrop-blur-sm text-center">
               <div className="text-3xl font-bold text-emerald-400 mb-2">{stat.value}</div>

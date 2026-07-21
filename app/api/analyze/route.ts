@@ -1,105 +1,57 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Import the risk engine
-const { calculateOptimizedRisk } = require('@/lib/optimized_risk_engine.js');
+import { calculateOptimizedRisk } from '@/lib/optimized_risk_engine.js';
+import { enforceApiAuthentication, enforceRateLimit, isEvmAddress } from '@/lib/api-security';
+import { fetchBlockchainIntelligence } from '@/lib/blockchain-intelligence';
 
 export async function POST(request: NextRequest) {
+  const authError = enforceApiAuthentication(request);
+  if (authError) return authError;
+
+  const rateLimitError = enforceRateLimit(request);
+  if (rateLimitError) return rateLimitError;
+
   try {
     const body = await request.json();
-    const { address, transactionValue, historicalAddresses } = body;
+    const { address, transactionValue, historicalAddresses, chainId = 1 } = body;
 
-    if (!address) {
+    if (!isEvmAddress(address)) {
       return NextResponse.json(
-        { error: 'Address is required' },
+        { error: 'A valid EVM address is required' },
         { status: 400 }
       );
     }
 
-    // Simulate wallet data (in production, this would fetch from blockchain APIs)
-    const mockWalletData = generateMockWalletData(address);
+    const normalizedChainId = Number.isFinite(Number(chainId)) ? Number(chainId) : 1;
+    const liveIntelligence = await fetchBlockchainIntelligence(address, normalizedChainId);
 
-    // Calculate risk using the optimized risk engine
     const riskAssessment = await calculateOptimizedRisk({
       walletAddress: address,
-      walletAgeDays: mockWalletData.walletAgeDays,
-      transactionCount: mockWalletData.transactionCount,
-      balanceEth: mockWalletData.balanceEth,
-      threatScore: mockWalletData.threatScore,
-      blacklistAssociations: mockWalletData.blacklistAssociations,
-      isDirectlyBlacklisted: mockWalletData.isDirectlyBlacklisted,
-      isSmartContract: mockWalletData.isSmartContract,
-      transactionValue: transactionValue || 0,
+      walletAgeDays: liveIntelligence.walletAgeDays,
+      transactionCount: liveIntelligence.transactionCount,
+      balanceEth: liveIntelligence.balanceEth,
+      threatScore: liveIntelligence.threatScore,
+      blacklistAssociations: liveIntelligence.blacklistAssociations,
+      isDirectlyBlacklisted: liveIntelligence.isDirectlyBlacklisted,
+      isSmartContract: liveIntelligence.isSmartContract,
+      transactionValue: Number(transactionValue) || 0,
       historicalAddresses: historicalAddresses || [],
-      contractData: mockWalletData.contractData,
+      contractData: liveIntelligence.contractData,
+      externalThreatAPIConfig: {
+        enabled: Boolean(process.env.FORTA_API_KEY || process.env.CHAINALYSIS_API_KEY || process.env.ETHERSCAN_API_KEY),
+      },
     });
 
-    return NextResponse.json(riskAssessment);
-  } catch (error: any) {
+    return NextResponse.json({
+      ...riskAssessment,
+      liveIntelligence,
+      dataQuality: liveIntelligence.dataQuality,
+    });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
     console.error('Analysis error:', error);
     return NextResponse.json(
-      { error: 'Analysis failed', details: error.message },
+      { error: 'Analysis failed', details: message },
       { status: 500 }
     );
   }
-}
-
-// Mock data generator (in production, replace with real blockchain API calls)
-function generateMockWalletData(address: string) {
-  // Zero address - high risk
-  if (address === '0x0000000000000000000000000000000000000000') {
-    return {
-      walletAgeDays: 0,
-      transactionCount: 0,
-      balanceEth: 0,
-      threatScore: 0.95,
-      blacklistAssociations: 0,
-      isDirectlyBlacklisted: true,
-      isSmartContract: false,
-      contractData: {},
-    };
-  }
-
-  // New wallet pattern (1234...)
-  if (address.includes('1234567890')) {
-    return {
-      walletAgeDays: 2,
-      transactionCount: 3,
-      balanceEth: 0.05,
-      threatScore: 0.4,
-      blacklistAssociations: 0,
-      isDirectlyBlacklisted: false,
-      isSmartContract: false,
-      contractData: {},
-    };
-  }
-
-  // Smart contract pattern (contains repeated chars)
-  if (/([a-f0-9])\1{4,}/i.test(address)) {
-    return {
-      walletAgeDays: 150,
-      transactionCount: 1200,
-      balanceEth: 50.5,
-      threatScore: 0.3,
-      blacklistAssociations: 0,
-      isDirectlyBlacklisted: false,
-      isSmartContract: true,
-      contractData: {
-        bytecode: '0x608060405260043610f4',
-        sourceCode: 'contract Token { function transfer(address to, uint256 amount) public returns (bool) { /* ... */ } }',
-        isVerified: true,
-      },
-    };
-  }
-
-  // Default: established wallet
-  return {
-    walletAgeDays: 450,
-    transactionCount: 850,
-    balanceEth: 3.2,
-    threatScore: 0.15,
-    blacklistAssociations: 0,
-    isDirectlyBlacklisted: false,
-    isSmartContract: false,
-    contractData: {},
-  };
 }

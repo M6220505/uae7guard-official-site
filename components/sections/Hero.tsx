@@ -30,7 +30,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-emerald-400 text-sm font-medium">100% Detection Rate Achieved</span>
+            <span className="text-emerald-400 text-sm font-medium">Evidence-based Risk Intelligence</span>
           </motion.div>
 
           {/* Main title */}
@@ -46,7 +46,7 @@ export default function Hero() {
           <p className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed">
             Real-time threat detection and risk assessment for blockchain transactions.
             <span className="block mt-2 text-emerald-400 font-semibold">
-              Sub-100ms latency. Production-ready.
+              Live-data ready. Transparent scoring.
             </span>
           </p>
 
@@ -82,16 +82,16 @@ export default function Hero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto"
           >
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-emerald-400 mb-2">100%</div>
-              <div className="text-zinc-400">Detection Rate</div>
+              <div className="text-4xl font-bold text-emerald-400 mb-2">Risk</div>
+              <div className="text-zinc-400">Scoring</div>
             </div>
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-cyan-400 mb-2">&lt;100ms</div>
-              <div className="text-zinc-400">Response Latency</div>
+              <div className="text-4xl font-bold text-cyan-400 mb-2">Live</div>
+              <div className="text-zinc-400">Risk Signals</div>
             </div>
             <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm">
-              <div className="text-4xl font-bold text-purple-400 mb-2">24/7</div>
-              <div className="text-zinc-400">Real-time Protection</div>
+              <div className="text-4xl font-bold text-purple-400 mb-2">Before</div>
+              <div className="text-zinc-400">Signing Warnings</div>
             </div>
           </motion.div>
         </motion.div>

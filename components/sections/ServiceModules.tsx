@@ -14,9 +14,9 @@ const services = [
       '70%+ similarity threshold alerting',
     ],
     metrics: {
-      accuracy: '99.8%',
-      latency: '<50ms',
-      falsePositive: '0.02%',
+      similarityScoring: 'Tuned',
+      localChecks: 'Fast',
+      falsePositive: 'Tunable',
     },
   },
   {
@@ -30,15 +30,15 @@ const services = [
       'Unverified contract risk assessment',
     ],
     metrics: {
-      accuracy: '100%',
-      latency: '<80ms',
-      coverage: '95%+',
+      evidenceMapping: 'OWASP',
+      bytecodeChecks: 'Static',
+      owaspRisks: 'Mapped',
     },
   },
   {
     icon: '⚡',
     title: 'Real-time Risk Scoring',
-    description: 'Multi-vector threat intelligence with granular weight system adapts to threat type for maximum accuracy.',
+    description: 'Multi-vector threat intelligence with granular weight system adapts to threat type for maximum explainability.',
     features: [
       'Dynamic weight adjustment per threat',
       'Age, activity, value pattern analysis',
@@ -46,8 +46,8 @@ const services = [
       'Confidence scoring with transparent breakdown',
     ],
     metrics: {
-      accuracy: '100%',
-      latency: '<100ms',
+      evidenceMapping: 'OWASP',
+      liveInputs: 'Configurable',
       threats: '5 types',
     },
   },
@@ -116,7 +116,7 @@ export default function ServiceModules() {
                 {/* Metrics */}
                 <div className="border-t border-zinc-800 pt-6">
                   <h4 className="text-sm font-semibold text-zinc-500 mb-3 uppercase tracking-wide">
-                    Performance Metrics
+                    Evidence Metrics
                   </h4>
                   <div className="grid grid-cols-3 gap-4">
                     {Object.entries(service.metrics).map(([key, value]) => (

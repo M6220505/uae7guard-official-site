@@ -6,7 +6,7 @@
 
 📋 **[PROD_SETUP_CHECKLIST.md](./PROD_SETUP_CHECKLIST.md)** - Complete deployment checklist
 - Step-by-step API key acquisition (WalletConnect, Alchemy, Telegram, Forta)
-- Deployment guides for Vercel, Netlify, Docker
+- Deployment guides for Render, Railway, Netlify, Docker, and VPS
 - Custom domain setup with DNS configuration
 - Post-deployment verification
 - Comprehensive troubleshooting
@@ -202,7 +202,7 @@ uae7guard_official_site/
 
 The production setup checklist includes:
 - Comprehensive API key acquisition guides (WalletConnect, Alchemy, Telegram, Forta)
-- Deployment instructions for Vercel, Netlify, and Docker
+- Deployment instructions for Render, Railway, Netlify, Docker, and VPS
 - Custom domain configuration
 - Post-deployment verification steps
 - Troubleshooting guide
@@ -239,7 +239,7 @@ The production setup checklist includes:
    NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_actual_project_id
 
    # HIGHLY RECOMMENDED - Get from https://www.alchemy.com
-   NEXT_PUBLIC_ALCHEMY_ID=your_alchemy_api_key
+   NEXT_PUBLIC_ALCHEMY_API_KEY=your_alchemy_api_key
 
    # OPTIONAL (for notifications) - Get from @BotFather on Telegram
    TELEGRAM_BOT_TOKEN=your_bot_token
@@ -303,28 +303,31 @@ This creates an optimized production build in the `.next` directory.
 npm start
 ```
 
-### Deploy to Vercel (Recommended)
+### Deploy without Vercel (Recommended)
 
-**📋 For complete deployment guide with screenshots, see [PROD_SETUP_CHECKLIST.md](./PROD_SETUP_CHECKLIST.md)**
+**📋 For exact commands, see [docs/non-vercel-deployment.md](./docs/non-vercel-deployment.md)**
 
-#### Quick Deployment Steps:
+#### Render / Railway
 
-1. **Install Vercel CLI**:
-   ```bash
-   npm i -g vercel
-   ```
+Build command:
+```bash
+npm ci && npm run build
+```
 
-2. **Deploy**:
-   ```bash
-   vercel
-   ```
+Start command:
+```bash
+npm run start
+```
 
-3. **Configure custom domain** (e.g., uae7guard.com):
-   - Go to Vercel Dashboard → Project Settings → Domains
-   - Add your custom domain
-   - Update DNS records as instructed
+#### Docker / VPS
 
-   **📋 For detailed custom domain setup (with DNS configuration guides for GoDaddy, Namecheap, Cloudflare, etc.), see [PROD_SETUP_CHECKLIST.md](./PROD_SETUP_CHECKLIST.md)**
+```bash
+cp .env.example .env.production
+# edit .env.production
+docker compose -f docker-compose.example.yml up -d --build
+```
+
+Configure your custom domain in the hosting dashboard or reverse proxy, then set `NEXT_PUBLIC_APP_URL` to the final HTTPS domain.
 
 ### Deploy to Other Platforms
 
@@ -382,7 +385,7 @@ NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_project_id
 
 # Alchemy API Key (for high-performance blockchain data)
 # Get FREE at: https://www.alchemy.com (300M compute units/month)
-NEXT_PUBLIC_ALCHEMY_ID=your_alchemy_api_key_here
+NEXT_PUBLIC_ALCHEMY_API_KEY=your_alchemy_api_key_here
 
 # ============================================================================
 # OPTIONAL - NOTIFICATION ENGINE
@@ -454,14 +457,14 @@ NEXT_PUBLIC_APP_NAME=UAE7Guard
 
 ### Current Implementation
 
-The security scanner uses the optimized risk engine with both mock data and Web3 wallet integration:
+The security scanner uses the optimized risk engine with live RPC/explorer data and Web3 wallet integration:
 
 **Two Analysis Endpoints**:
 
 1. **Standard Analysis** (`/api/analyze`):
    - Accepts any Ethereum address
-   - Uses mock blockchain data for demonstration
-   - Perfect for testing and demo purposes
+   - Uses live blockchain reads when RPC/explorer keys are configured
+   - Suitable for smoke testing with clearly disclosed data-quality limits
 
 2. **Web3 Wallet Analysis** (`/api/analyze-web3`) **NEW**:
    - Analyzes connected Web3 wallet in real-time
@@ -587,9 +590,7 @@ For production with real blockchain data:
    ```
 
 3. **Analytics**:
-   ```bash
-   npm install @vercel/analytics
-   ```
+   Use a host-neutral analytics provider such as Plausible, PostHog, Google Analytics, or your existing observability stack.
 
 4. **API Rate Limiting**:
    ```typescript
@@ -601,7 +602,7 @@ For production with real blockchain data:
 
 ### Production Checklist
 
-- [ ] Enable HTTPS (handled by Vercel/Netlify)
+- [ ] Enable HTTPS (handled by your host, reverse proxy, or CDN)
 - [ ] Add Content Security Policy headers
 - [ ] Implement API rate limiting
 - [ ] Add CORS configuration
@@ -644,7 +645,7 @@ module.exports = {
 
 ### Recommended Tools
 
-1. **Analytics**: Vercel Analytics, Google Analytics, Plausible
+1. **Analytics**: Google Analytics, Plausible, PostHog
 2. **Error Tracking**: Sentry
 3. **Uptime Monitoring**: Pingdom, UptimeRobot
 4. **Performance**: Lighthouse CI, Web Vitals
@@ -697,7 +698,7 @@ export async function GET() {
 
 ### For High Traffic
 
-1. **CDN**: Enable Vercel Edge Network or Cloudflare
+1. **CDN**: Enable Cloudflare, Fastly, AWS CloudFront, or your host CDN
 2. **Database**: Add Redis for caching
 3. **API**: Rate limiting and request queuing
 4. **Load Balancing**: Multiple instances with PM2 or Kubernetes

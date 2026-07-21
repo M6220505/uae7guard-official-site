@@ -49,7 +49,7 @@ export default function NFTRiskAnalysis() {
               icon: '📈',
               title: 'Rug-Pull Detection',
               color: 'purple',
-              description: 'Machine learning identifies suspicious patterns before projects collapse',
+              description: 'Risk rules identify suspicious patterns that can indicate elevated project risk',
               features: [
                 'Trading volume analysis',
                 'Holder distribution check',
@@ -61,7 +61,7 @@ export default function NFTRiskAnalysis() {
               icon: '🎯',
               title: 'Value Assessment',
               color: 'fuchsia',
-              description: 'Real-time market analysis and fair value estimation for NFT assets',
+              description: 'Market-context checks and transparent risk notes for NFT assets',
               features: [
                 'Floor price tracking',
                 'Rarity scoring',
@@ -247,10 +247,10 @@ export default function NFTRiskAnalysis() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { value: '45K+', label: 'Collections Analyzed' },
-            { value: '98.7%', label: 'Accuracy Rate' },
-            { value: '127', label: 'Rug Pulls Prevented' },
-            { value: '$42M', label: 'Losses Avoided' }
+            { value: 'Signals', label: 'Collection Checks' },
+            { value: 'Explainable', label: 'Risk Factors' },
+            { value: 'Early', label: 'Risk Warnings' },
+            { value: 'Live data', label: 'When Configured' }
           ].map((stat, idx) => (
             <div key={idx} className="p-6 rounded-xl bg-zinc-950 border border-pink-500/20 backdrop-blur-sm text-center">
               <div className="text-3xl font-bold text-pink-400 mb-2">{stat.value}</div>

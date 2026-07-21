@@ -63,7 +63,8 @@ export function useLanguage() {
 }
 
 // next-intl compatibility adapters
-export function useTranslations(namespace: string) {
+export function useTranslations(namespace?: string) {
+  void namespace;
   return (key: string) => {
     // Return key as fallback for now - prevents build errors
     return key;

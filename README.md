@@ -2,11 +2,9 @@
 
 🛡️ **Enterprise-grade Web3 Security Platform V2.5**
 
-Production-ready official website for UAE7Guard featuring real-time blockchain transaction risk analysis with 100% detection accuracy and sub-100ms latency.
+Production-ready official website for UAE7Guard featuring real-time blockchain transaction risk analysis with transparent risk scoring, live blockchain context, and pre-sign transaction warnings.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fuae7guard-official-site&env=NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID,NEXT_PUBLIC_ALCHEMY_API_KEY&envDescription=Required%20API%20keys%20for%20Web3%20functionality&envLink=https%3A%2F%2Fgithub.com%2FYOUR_USERNAME%2Fuae7guard-official-site%2Fblob%2Fmain%2F.env.example&project-name=uae7guard-official-site&repository-name=uae7guard-official-site)
-
-> 📝 **Note**: Update the repository URL in the Deploy button above after creating your GitHub repository.
+> 🚀 **Non-Vercel launch path**: Use the [Non-Vercel Production Deployment Guide](./docs/non-vercel-deployment.md) for Render, Railway, Docker, DigitalOcean, AWS, or a VPS.
 
 ## 🚀 V2.5 NEW FEATURES
 
@@ -51,7 +49,7 @@ Visit `http://localhost:3000` to view the site.
 
 ### Hero Section
 - High-impact landing with animated gradients
-- Real-time performance metrics (100% detection, <100ms latency)
+- Evidence-based performance metrics with transparent confidence and data-quality limits
 - Responsive CTAs and scroll indicators
 
 ### Security Scanner Portal
@@ -63,13 +61,13 @@ Visit `http://localhost:3000` to view the site.
 ### Service Modules
 1. **Address Poisoning Defense**
    - Levenshtein distance algorithm
-   - 99.8% accuracy, <50ms latency
+   - Explainable similarity scoring with tunable thresholds
    - Prefix/suffix similarity detection
 
 2. **Smart Contract Auditing**
    - Bytecode analysis for dangerous opcodes
    - Reentrancy vulnerability scanning
-   - 100% accuracy on known patterns
+   - explainable detection for known high-risk patterns
 
 3. **Real-time Risk Scoring**
    - 5 threat category classification
@@ -96,41 +94,38 @@ Visit `http://localhost:3000` to view the site.
 
 ```
 ├── app/
-│   ├── [locale]/               # Internationalized routes (en/ar)
-│   │   ├── page.tsx            # Homepage
-│   │   ├── dashboard/          # Security dashboard
-│   │   ├── developers/         # Developer portal
-│   │   └── layout.tsx          # Locale layout with Web3Provider
-│   ├── api/analyze/            # Risk analysis API endpoint
-│   ├── globals.css             # Global styles
-│   └── layout.tsx              # Root layout
+│   ├── api/
+│   │   ├── analyze/route.ts         # Core risk analysis API endpoint
+│   │   └── analyze-web3/route.ts    # Connected wallet analysis endpoint
+│   ├── dashboard/page.tsx           # Security dashboard
+│   ├── developers/page.tsx          # Developer portal
+│   ├── globals.css                  # Global styles
+│   ├── layout.tsx                   # Root layout (Navigation + app providers)
+│   └── page.tsx                     # Homepage
 ├── components/
-│   ├── sections/               # Page sections (Hero, Scanner, etc.)
-│   ├── NotificationSettings.tsx # V2.5: Telegram/Discord config
-│   ├── TransactionSimulator.tsx # V2.5: Pre-sign analysis
-│   ├── ConnectWalletButton.tsx # V2.5: RainbowKit integration
-│   ├── LanguageSwitcher.tsx    # V2.5: i18n toggle
-│   ├── Navigation.tsx          # Enhanced navigation bar
-│   └── Web3WalletAnalyzer.tsx  # Wallet risk analysis
+│   ├── sections/                    # Page sections (Hero, Scanner, etc.)
+│   ├── Navigation.tsx               # Main navigation + wallet connect
+│   ├── Web3WalletAnalyzer.tsx       # Wallet risk analysis UI
+│   ├── TransactionSimulator.tsx     # Pre-sign analysis
+│   └── NotificationSettings.tsx     # Telegram/Discord config
 ├── lib/
-│   ├── optimized_risk_engine.js # V2.5: Enhanced with external APIs
-│   ├── web3-provider.tsx       # RainbowKit configuration
-│   └── wagmi.ts                # Wagmi client setup
+│   ├── optimized_risk_engine.js     # Risk engine + detection modules
+│   ├── web3-provider.tsx            # RainbowKit/Wagmi provider
+│   ├── wagmi.ts                     # Wagmi config helper
+│   └── language-context.tsx         # Language/RTL context
 ├── messages/
-│   ├── en.json                 # English translations
-│   └── ar.json                 # Arabic translations (V2.5)
-├── middleware.ts               # i18n routing middleware
-├── i18n.ts                     # i18n configuration
-├── V2.5_UPGRADE_GUIDE.md       # Comprehensive V2.5 documentation
-└── PRODUCTION_GUIDE.md         # Deployment guide
+│   ├── en.json                      # English translations
+│   └── ar.json                      # Arabic translations
+├── V2.5_UPGRADE_GUIDE.md
+└── PRODUCTION_GUIDE.md
 ```
 
 ## 🔧 Risk Engine
 
 The core security engine (`lib/optimized_risk_engine.js`) provides:
 
-- **100% detection rate** across all threat categories
-- **<100ms latency** for real-time assessment (including external APIs)
+- **Transparent risk scoring** across supported threat categories
+- **Provider-dependent latency** for live RPC/explorer assessment
 - **External API Integration**: Forta Network, Chainalysis, Etherscan
 - **Intelligent Caching**: 1-hour TTL for external API responses
 - **5 threat types**: Direct Blacklist, Smart Contract, Address Poisoning, Flash Loan, Standard
@@ -162,43 +157,57 @@ POST /api/analyze
 
 ## 🌐 Deployment
 
-### Quick Deploy to Vercel
+### Recommended non-Vercel launch
 
-Click the "Deploy with Vercel" button at the top of this README for one-click deployment.
+Use [docs/non-vercel-deployment.md](./docs/non-vercel-deployment.md) for Render, Railway, Docker, DigitalOcean/VPS, AWS-style, and PM2 deployment steps.
 
-### Manual Deployment
+### Docker quick start
 
-See [DEPLOY_COMMANDS.md](./DEPLOY_COMMANDS.md) for detailed step-by-step instructions including:
-- Creating a GitHub repository
-- Pushing your code
-- Deploying to Vercel (3 different methods)
-- Setting up environment variables
-- Adding custom domains
-- Troubleshooting common issues
-
-### Vercel CLI
 ```bash
-npm install -g vercel
-vercel login
-vercel --prod
+cp .env.example .env.production
+open -e .env.production
+docker build -t uae7guard-official-site:test .
+docker rm -f uae7guard 2>/dev/null || true
+docker run -d --name uae7guard --restart unless-stopped --env-file .env.production -p 3000:3000 uae7guard-official-site:test
+```
+
+### Node host quick start
+
+```bash
+npm ci
+npm run build
+npm run start
 ```
 
 ### Environment Variables
 
-Required for production (add in Vercel dashboard or `.env.local`):
+Required and optional production variables (add in your host dashboard, Docker env file, or `.env.local`):
 ```env
+# Required for wallet connection
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
-NEXT_PUBLIC_ALCHEMY_API_KEY=your_api_key
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+
+# Recommended for live chain reads
+NEXT_PUBLIC_ALCHEMY_API_KEY=your_public_api_key
+ALCHEMY_API_KEY=your_server_api_key
+ETHERSCAN_API_KEY=your_etherscan_key
+
+# Public MVP rate limit
+API_RATE_LIMIT_WINDOW_MS=60000
+API_RATE_LIMIT_MAX=30
 ```
+
+Do not set `UAE7GUARD_API_KEY` for the first public frontend MVP unless your frontend/API clients send `x-api-key`.
 
 See `.env.example` for all available options.
 
 ### Custom Domain
-1. Deploy to Vercel/Netlify
-2. Add custom domain (e.g., `uae7guard.com`)
-3. Update DNS records as instructed
+1. Deploy to Render/Railway/Docker/VPS.
+2. Add your custom domain (e.g., `uae7guard.com`).
+3. Update DNS records as instructed by your host or reverse proxy.
+4. Set `NEXT_PUBLIC_APP_URL` to the final HTTPS domain.
 
-For detailed deployment instructions, see [DEPLOY_COMMANDS.md](./DEPLOY_COMMANDS.md) and [PRODUCTION_GUIDE.md](./PRODUCTION_GUIDE.md).
+For detailed deployment instructions, see [DEPLOY_COMMANDS.md](./DEPLOY_COMMANDS.md), [docs/non-vercel-deployment.md](./docs/non-vercel-deployment.md), and [PRODUCTION_GUIDE.md](./PRODUCTION_GUIDE.md).
 
 ## 🎨 Design System
 
@@ -264,7 +273,7 @@ Proprietary - UAE7Guard © 2025. All rights reserved.
 
 This website is production-ready and can be deployed to:
 - **Domain**: uae7guard.com (or any custom domain)
-- **Platforms**: Vercel, Netlify, AWS, Docker, VPS
+- **Platforms**: Render, Railway, Netlify, AWS, Docker, VPS
 
 ---
 

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:unit": "tsx scripts/risk-engine.test.ts",
+    "test:e2e": "node e2e/scanner-wallet-analysis.mjs"
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^2.2.10",
